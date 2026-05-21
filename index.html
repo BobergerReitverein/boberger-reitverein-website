@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boberger Reitverein Hamburg e.V.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@100;200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── HERO ─────────────────────────────────────────────── */
+    .hero {
+      height: 100vh;
+      min-height: 540px;
+      max-height: 100svh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--nav-h) clamp(20px, 4vw, 48px) clamp(48px, 6vw, 80px);
+      overflow: hidden;
+    }
+    @supports (height: 100svh) {
+      .hero { height: 100svh; }
+    }
+
+    .hero-img-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-single-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 38% center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.38) 52%, rgba(0,0,0,0.08) 100%),
+        linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 40%);
+    }
+
+.hero-content { position: relative; z-index: 2; max-width: 860px; }
+
+    .hero-label {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 28px;
+      padding-left: 20px;
+      border-left: 1px solid var(--green-mid);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 10vw, 112px);
+      font-weight: 400;
+      line-height: 0.93;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: clamp(20px, 2.8vw, 32px);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .hero-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--white);
+    }
+
+    .hero-tagline {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(10px, 1.05vw, 12px);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: clamp(28px, 4.5vw, 52px);
+      margin-left: 4px;
+    }
+
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .hero-scroll {
+      position: absolute;
+      right: 48px;
+      bottom: 80px;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-scroll span {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      writing-mode: vertical-rl;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: rgba(255,255,255,0.2);
+      animation: scrollLine 1.8s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.2; transform: scaleY(1); }
+      50% { opacity: 0.6; transform: scaleY(0.5); }
+    }
+
+    /* ── ÜBER UNS ─────────────────────────────────────────── */
+    #ueber-uns { padding: clamp(48px, 6.5vw, 72px) clamp(20px, 4vw, 48px); }
+
+    .ueber-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--black);
+    }
+
+    .ueber-image {
+      aspect-ratio: 4/5;
+      background: url('images/Überuns.jpg') center center / cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+    }
+
+    .ueber-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.25) 100%);
+    }
+
+    .ueber-image::after {
+      content: 'Boberger\A Niederung';
+      white-space: pre;
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+    }
+
+    .ueber-text {
+      max-width: 760px;
+    }
+
+    .ueber-text p {
+      font-weight: 300;
+      font-size: clamp(13px, 1.05vw, 15px);
+      line-height: 1.85;
+      color: #3a3a3a;
+      margin-bottom: 16px;
+    }
+
+    .section-inner {
+      max-width: 900px;
+    }
+
+    .ueber-year {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(54px, 6vw, 80px);
+      color: var(--grey-light);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .ueber-year-label {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: clamp(9px, 0.85vw, 10px);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: clamp(28px, 3.5vw, 40px);
+    }
+
+    .ueber-heading {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5.2vw, 72px);
+      letter-spacing: 0.01em;
+      line-height: 1.05;
+      margin-bottom: clamp(20px, 2.5vw, 28px);
+      color: var(--black);
+    }
+
+    .ueber-body {
+      font-weight: 300;
+      font-size: clamp(13px, 1vw, 14px);
+      line-height: 1.85;
+      color: #3a3a3a;
+      margin-bottom: 14px;
+    }
+
+    .ueber-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--grey-light);
+    }
+
+    .ueber-stat-num {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: 30px;
+      display: block;
+    }
+
+    .ueber-stat-label {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    /* ── AKTUELLES ────────────────────────────────────────── */
+    #aktuelles { padding: clamp(48px, 6.5vw, 72px) clamp(20px, 4vw, 48px); }
+
+    .aktuelles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--black);
+    }
+
+    .news-card {
+      padding: clamp(28px, 3vw, 40px) clamp(22px, 2.8vw, 36px);
+      border-right: 1px solid var(--black);
+      display: flex;
+      flex-direction: column;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .news-card:last-child { border-right: none; }
+    .news-card:hover { background: var(--grey-bg); }
+
+    .news-date {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .news-category {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--grey-light);
+    }
+
+    .news-title {
+      font-family: var(--font-display);
+      font-size: clamp(16px, 1.4vw, 18px);
+      letter-spacing: 0.03em;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    .news-excerpt {
+      font-weight: 300;
+      font-size: clamp(12.5px, 1vw, 13.5px);
+      line-height: 1.75;
+      color: #555;
+      margin-bottom: clamp(20px, 2.2vw, 28px);
+    }
+
+    .news-link {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+    .news-link:hover { color: var(--green); }
+
+    /* ── KONTAKT ──────────────────────────────────────────── */
+    #kontakt { padding: clamp(48px, 6.5vw, 72px) clamp(20px, 4vw, 48px); position: relative; }
+    #kontakt > .section-label { position: relative; z-index: 1; color: var(--white); border-bottom-color: rgba(255,255,255,0.2); }
+
+    .kontakt-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(13,27,46,0.82);
+      z-index: 0;
+    }
+
+    .kontakt-box {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: transparent;
+      color: var(--white);
+      padding: clamp(36px, 5.5vw, 72px) clamp(24px, 4.5vw, 60px);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0 clamp(28px, 4.5vw, 60px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .kontakt-name {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 4vw, 44px);
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      grid-column: 1 / -1;
+      margin-bottom: clamp(28px, 4vw, 48px);
+    }
+
+    .k-label {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: clamp(9px, 0.8vw, 10px);
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 6px;
+    }
+
+    .k-val {
+      font-weight: 300;
+      font-size: clamp(14px, 1.1vw, 16px);
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    .ueber-text { padding: clamp(28px, 4vw, 48px); }
+
+    /* Tablet — 2-col aktuelles, full-width ueber */
+    @media (max-width: 960px) {
+      .hero-scroll { display: none; }
+
+      .ueber-grid { grid-template-columns: 1fr; }
+      .ueber-image { aspect-ratio: 16/10; min-height: 280px; }
+
+      .aktuelles-grid { grid-template-columns: repeat(2, 1fr); }
+      .news-card:nth-child(2n) { border-right: none; }
+      .news-card { border-bottom: 1px solid var(--black); }
+      .news-card:nth-last-child(-n+1) { border-bottom: none; }
+      /* If odd count of news (3) the last spans both cols on tablet */
+      .news-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+      .kontakt-box {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 32px;
+      }
+      .kontakt-name { font-size: clamp(26px, 4.5vw, 38px); margin-bottom: 28px; }
+    }
+
+    /* Phone */
+    @media (max-width: 600px) {
+      .hero { min-height: 480px; }
+      .hero-content { max-width: 100%; }
+      .hero-tagline { letter-spacing: 0.14em; }
+
+      .ueber-image { aspect-ratio: 4/3; min-height: 240px; }
+      .ueber-stats { flex-wrap: wrap; gap: 18px 28px; margin-top: 28px; padding-top: 24px; }
+
+      .aktuelles-grid { grid-template-columns: 1fr; }
+      .news-card { border-right: none; }
+      .news-card:last-child:nth-child(odd) { grid-column: auto; }
+      .news-card:last-child { border-bottom: none; }
+
+      .kontakt-box { grid-template-columns: 1fr; gap: 24px 0; }
+    }
+
+    /* Small phone */
+    @media (max-width: 380px) {
+      .hero { min-height: 440px; }
+      .ueber-image { min-height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/wappen-transparent.png" alt="BRV Wappen" class="nav-wappen">Boberger Reitverein Hamburg e.V.</a>
+  <div class="nav-right">
+
+    <div class="nav-item">
+      <button>Verein <span class="nav-chevron">▾</span></button>
+      <div class="nav-dropdown">
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="vorstand.html">Team</a>
+        <a href="anlage.html">Anlage</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button>Angebote <span class="nav-chevron">▾</span></button>
+      <div class="nav-dropdown">
+        <a href="unterricht.html">Unterricht</a>
+        <a href="schulpferde.html">Schulpferde</a>
+        <a href="pensionspferde.html">Pensionspferde</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="aktuelles.html">Aktuelles</a>
+    </div>
+
+    <div class="nav-item">
+      <a href="downloads.html">Downloads</a>
+    </div>
+
+    <div class="nav-item">
+      <a href="anfahrt.html">Anfahrt</a>
+    </div>
+
+    <div class="nav-item">
+      <a href="index.html#kontakt">Kontakt</a>
+    </div>
+
+  </div>
+  <button class="nav-burger" id="burgerBtn" aria-label="Menü">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <div class="mobile-section-label">Verein</div>
+  <a href="ueber-uns.html" onclick="closeMobile()">Über uns</a>
+  <a href="vorstand.html" onclick="closeMobile()">Team</a>
+  <a href="anlage.html" onclick="closeMobile()">Anlage</a>
+  <div class="mobile-section-label">Angebote</div>
+  <a href="unterricht.html" onclick="closeMobile()">Unterricht</a>
+  <a href="schulpferde.html" onclick="closeMobile()">Schulpferde</a>
+  <a href="pensionspferde.html" onclick="closeMobile()">Pensionspferde</a>
+  <div class="mobile-section-label">Informationen</div>
+  <a href="aktuelles.html" onclick="closeMobile()">Aktuelles</a>
+  <a href="downloads.html" onclick="closeMobile()">Downloads</a>
+  <a href="anfahrt.html" onclick="closeMobile()">Anfahrt</a>
+  <a href="index.html#kontakt" onclick="closeMobile()">Kontakt</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img-wrap">
+    <img src="images/slide-1.jpg" alt="Boberger Reitverein" class="hero-single-img">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">BOBERGER<br><em>Reitverein</em><br>HAMBURG</h1>
+    <p class="hero-tagline">Seit 1968 im Herzen der Boberger Niederung.</p>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section id="ueber-uns" class="section-ueber-uns">
+  <div class="ueber-grid reveal">
+    <div class="ueber-image"></div>
+    <div class="ueber-text">
+      <p class="section-label" style="margin-bottom: 32px;">Über uns</p>
+      <div class="ueber-year">1968</div>
+      <div class="ueber-year-label">Gegründet</div>
+      <h2 class="ueber-heading">Tradition trifft<br>Pferdewohl</h2>
+      <p class="ueber-body">Der 1968 gegründete Boberger Reitverein Hamburg e.V. zählt zu den traditionsreichsten Reitsportvereinen Hamburgs. Er liegt in der Marschenlandschaft im Südosten Hamburgs beim Naturschutzgebiet der Boberger Dünen und ist umgeben von wunderschöner Natur und reetgedeckten historischen Hufnerhäusern.</p>
+      <p class="ueber-body">Bei uns stehen die Pferde an erster Stelle. Helle Boxen, täglicher Weide- oder Paddockgang und eine dreimal tägliche Fütterung sorgen für eine artgerechte Haltung.</p>
+      <p class="ueber-body">Unser Trainerteam bietet abwechslungsreichen Reit- und Voltigierunterricht für jedes Niveau. Ob mit eigenem Pferd oder auf unseren zuverlässigen Schulpferden – hier findet jeder seinen Platz.</p>
+      <p class="ueber-body">Als Verein leben wir Gemeinschaft: Sommerfeste, Turniere, Abzeichenlehrgänge und unsere Pferdeweihnacht gehören genauso dazu wie gemeinsame Arbeitstage und entspannte Abende auf dem Hof.</p>
+      <a href="ueber-uns.html" class="news-link" style="margin-top: 28px;">Mehr →</a>
+    </div>
+  </div>
+</section>
+
+<!-- AKTUELLES -->
+<section id="aktuelles">
+  <p class="section-label reveal">Aktuelles</p>
+  <div class="aktuelles-grid reveal">
+    <article class="news-card">
+      <div class="news-date">Feriencamps</div>
+      <h3 class="news-title">Feriencamps 2026</h3>
+      <p class="news-excerpt">Auch 2026 bieten wir wieder spannende Reitferiencamps für Kinder und Jugendliche an – mit viel Zeit im Sattel, Pflegekunde und gemeinsamem Spaß.</p>
+      <a href="aktuelles.html" class="news-link">Mehr erfahren →</a>
+    </article>
+    <article class="news-card">
+      <div class="news-date">Arbeitstag</div>
+      <h3 class="news-title">Arbeitstag — 13. Juni 2026</h3>
+      <p class="news-excerpt">„Alles einmal frisch!" — Streichen, Holzschutz und am Abend Hamburger vom Grill. Alle Mitglieder sind herzlich eingeladen.</p>
+      <a href="aktuelles.html" class="news-link">Mehr erfahren →</a>
+    </article>
+    <article class="news-card">
+      <div class="news-date">Jahresplanung</div>
+      <h3 class="news-title">Jahresplanung 2026</h3>
+      <p class="news-excerpt">Sommerfest, Turniere, Mitgliederversammlungen, Abzeichenprüfungen und Weihnachtsfeier – alle Termine für 2026 auf einen Blick.</p>
+      <a href="aktuelles.html" class="news-link">Alle Termine →</a>
+    </article>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt" style="background-image: url('images/Hintergrundkontakt.jpg'); background-size: cover; background-position: center;">
+  <div class="kontakt-overlay"></div>
+  <p class="section-label reveal">Kontakt</p>
+  <div class="kontakt-box reveal">
+      <div class="kontakt-name">Boberger<br>Reitverein<br>Hamburg e.V.</div>
+      <div>
+        <div class="k-label">Adresse</div>
+        <div class="k-val">Billwerder Billdeich 256<br>21033 Hamburg</div>
+      </div>
+      <div>
+        <div class="k-label">Telefon</div>
+        <div class="k-val">040 7340552</div>
+      </div>
+      <div>
+        <div class="k-label">E-Mail</div>
+        <div class="k-val"><a href="mailto:info@boberger-reitverein.de" style="color:inherit;text-decoration:none;">info@boberger-reitverein.de</a></div>
+        <div style="margin-top:20px;">
+          <div class="k-label">Anfahrt</div>
+          <div class="k-val"><a href="anfahrt.html" style="color:rgba(255,255,255,0.6);text-decoration:none;">Wegbeschreibung ansehen →</a></div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-col">
+      <img src="images/wappen-transparent.png" alt="BRV Wappen" class="footer-wappen"><div class="footer-logo">Boberger Reitverein Hamburg e.V.</div>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="#" class="social-btn" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+        <a href="#" class="social-btn" aria-label="TikTok"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.78a4.85 4.85 0 01-1.07-.09z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Navigation</div>
+      <ul class="footer-nav">
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="vorstand.html">Team</a></li>
+        <li><a href="unterricht.html">Unterricht</a></li>
+        <li><a href="schulpferde.html">Schulpferde</a></li>
+        <li><a href="pensionspferde.html">Pensionspferde</a></li>
+        <li><a href="#aktuelles">Aktuelles</a></li>
+        <li><a href="anfahrt.html">Anfahrt</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Anschrift</div>
+      <div class="footer-address">
+        Billwerder Billdeich 256<br>21033 Hamburg<br><br>
+        040 7340552<br><a href="mailto:info@boberger-reitverein.de" style="color:inherit;text-decoration:none;">info@boberger-reitverein.de</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Boberger Reitverein Hamburg e.V.</span>
+    <div class="footer-legal">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const burgerBtn = document.getElementById('burgerBtn');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+  const mobileClose = document.getElementById('mobileClose');
+  burgerBtn.addEventListener('click', () => mobileOverlay.classList.add('open'));
+  mobileClose.addEventListener('click', closeMobile);
+  function closeMobile() { mobileOverlay.classList.remove('open'); }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+</script>
+</body>
+</html>

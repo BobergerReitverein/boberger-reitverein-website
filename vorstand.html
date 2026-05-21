@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team — Boberger Reitverein Hamburg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@100;200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-content { padding: clamp(56px, 7vw, 100px) clamp(20px, 4vw, 48px); }
+
+    /* Group Photo + Caption */
+    .gruppe-foto-wrap {
+      border: 1px solid var(--black);
+      margin-bottom: clamp(48px, 6vw, 80px);
+    }
+
+    .gruppe-foto {
+      aspect-ratio: 16/7;
+      background: linear-gradient(145deg, #e8e4e0 0%, #d0ccc8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .gruppe-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .gruppe-foto-hint {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: clamp(9px, 0.85vw, 10px);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.28);
+    }
+
+    .gruppe-foto-caption {
+      padding: clamp(14px, 1.5vw, 18px) clamp(20px, 2.5vw, 28px);
+      border-top: 1px solid var(--black);
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: clamp(10.5px, 1vw, 11.5px);
+      letter-spacing: 0.06em;
+      color: var(--grey);
+      line-height: 1.7;
+    }
+
+    /* Betriebsleitung */
+    .betrieb-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: clamp(48px, 6vw, 80px);
+    }
+    .betrieb-card {
+      border: 1px solid var(--black);
+    }
+
+    /* Beauftragte Grid */
+    .beauftragte-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--black);
+      margin-bottom: clamp(48px, 6vw, 80px);
+    }
+
+    .beauftragte-card { border-right: 1px solid var(--black); }
+    .beauftragte-card:last-child { border-right: none; }
+
+    .beauftragte-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(145deg, #e4e4e0 0%, #d0d0cc 100%);
+      overflow: hidden;
+    }
+    .beauftragte-photo img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+
+    .beauftragte-caption {
+      padding: clamp(18px, 2.2vw, 24px) clamp(20px, 2.5vw, 28px);
+      border-top: 1px solid var(--black);
+    }
+
+    .beauftragte-name {
+      font-family: var(--font-display);
+      font-size: clamp(14px, 1.3vw, 16px);
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .beauftragte-role {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: clamp(9px, 0.82vw, 9.5px);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--green);
+      line-height: 1.5;
+    }
+
+    /* Satzung Banner */
+    .satzung-banner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: clamp(20px, 3vw, 40px);
+      align-items: center;
+      padding: clamp(28px, 3.5vw, 40px) clamp(24px, 4vw, 48px);
+      border: 1px solid var(--black);
+      margin-bottom: clamp(48px, 6vw, 80px);
+    }
+
+    .satzung-text h3 {
+      font-family: var(--font-display);
+      font-size: clamp(17px, 1.7vw, 20px);
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .satzung-text p {
+      font-weight: 300;
+      font-size: clamp(12.5px, 1vw, 13px);
+      color: #555;
+    }
+
+    /* Mitglied werden */
+    .mitglied-box {
+      background: var(--black);
+      padding: clamp(40px, 5.5vw, 72px) clamp(28px, 4.5vw, 60px);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(28px, 4.5vw, 60px);
+      align-items: center;
+    }
+
+    .mitglied-heading {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3.8vw, 48px);
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      color: var(--white);
+    }
+
+    .mitglied-text {
+      font-weight: 300;
+      font-size: clamp(13px, 1.05vw, 14px);
+      line-height: 1.85;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: clamp(24px, 2.8vw, 32px);
+    }
+
+    /* Tablet */
+    @media (max-width: 960px) {
+      .betrieb-wrap { grid-template-columns: 1fr; }
+      .betrieb-card { border-bottom: none; }
+      .betrieb-card + .betrieb-card { border-top: none; }
+      .beauftragte-grid { grid-template-columns: 1fr 1fr; }
+      .beauftragte-card:nth-child(2n) { border-right: none; }
+      .beauftragte-card { border-bottom: 1px solid var(--black); }
+      .beauftragte-card:nth-last-child(-n+2) { border-bottom: none; }
+      .satzung-banner { grid-template-columns: 1fr; text-align: left; }
+      .mitglied-box { grid-template-columns: 1fr; }
+      .gruppe-foto { aspect-ratio: 4/3; }
+    }
+
+    /* Phone */
+    @media (max-width: 600px) {
+      .beauftragte-grid { grid-template-columns: 1fr; }
+      .beauftragte-card { border-right: none; }
+      .beauftragte-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--black); }
+      .beauftragte-card:last-child { border-bottom: none; }
+      .beauftragte-photo { aspect-ratio: 16/12; }
+      .gruppe-foto { aspect-ratio: 1/1; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/wappen-transparent.png" alt="BRV Wappen" class="nav-wappen">Boberger Reitverein Hamburg e.V.</a>
+  <div class="nav-right">
+    <div class="nav-item active">
+      <button>Verein <span class="nav-chevron">▾</span></button>
+      <div class="nav-dropdown">
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="vorstand.html">Team</a>
+        <a href="anlage.html">Anlage</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <button>Angebote <span class="nav-chevron">▾</span></button>
+      <div class="nav-dropdown">
+        <a href="unterricht.html">Unterricht</a>
+        <a href="schulpferde.html">Schulpferde</a>
+        <a href="pensionspferde.html">Pensionspferde</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="aktuelles.html">Aktuelles</a></div>
+    <div class="nav-item"><a href="downloads.html">Downloads</a></div>
+    <div class="nav-item"><a href="anfahrt.html">Anfahrt</a></div>
+    <div class="nav-item"><a href="index.html#kontakt">Kontakt</a></div>
+  </div>
+  <button class="nav-burger" id="burgerBtn"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <div class="mobile-section-label">Verein</div>
+  <a href="ueber-uns.html" onclick="closeMobile()">Über uns</a>
+  <a href="vorstand.html" onclick="closeMobile()">Team</a>
+  <div class="mobile-section-label">Angebote</div>
+  <a href="unterricht.html" onclick="closeMobile()">Unterricht</a>
+  <a href="schulpferde.html" onclick="closeMobile()">Schulpferde</a>
+  <a href="pensionspferde.html" onclick="closeMobile()">Pensionspferde</a>
+  <div class="mobile-section-label">Informationen</div>
+  <a href="aktuelles.html" onclick="closeMobile()">Aktuelles</a>
+  <a href="downloads.html" onclick="closeMobile()">Downloads</a>
+  <a href="anfahrt.html" onclick="closeMobile()">Anfahrt</a>
+  <a href="index.html#kontakt" onclick="closeMobile()">Kontakt</a>
+</div>
+
+<div class="page-hero" style="background-image: url('images/TeamFotoBalken.jpeg'); background-size: 100% auto; background-position: center 30%;">
+  <div class="page-hero-bg" style="opacity: 1; background: linear-gradient(160deg, rgba(13,26,51,0.78) 0%, rgba(26,58,107,0.68) 45%, rgba(10,18,40,0.80) 100%);"></div>
+  <div class="page-hero-content">
+    <h1 class="page-title">Team</h1>
+    <p class="page-subtitle">Der Boberger Reitverein Hamburg e.V. — Gegründet 1968</p>
+  </div>
+</div>
+
+<div class="page-content">
+
+  <!-- Group Photo + Caption -->
+  <p class="section-label reveal">Vorstand</p>
+  <div class="gruppe-foto-wrap reveal">
+    <div class="gruppe-foto">
+      <img src="images/vorstand/Gruppenfoto.jpg" alt="Gruppenfoto Vereinsvorstand" loading="lazy" onerror="this.style.display='none'" />
+      <span class="gruppe-foto-hint">Gruppenfoto Vereinsvorstand</span>
+    </div>
+    <div class="gruppe-foto-caption">
+      Christiane Feist (Vorsitzende) &nbsp;|&nbsp;
+      Isabelle Haesler (Stellv. Vorsitzende) &nbsp;|&nbsp;
+      Katharina Lechelt (Schatzmeisterin) &nbsp;|&nbsp;
+      Lilli Schmidt (Jugendwartin) &nbsp;|&nbsp;
+      Janine Band (Technische Leiterin)
+    </div>
+  </div>
+
+  <!-- Betriebsleitung -->
+  <p class="section-label reveal">Betriebsleitung</p>
+  <div class="betrieb-wrap reveal">
+    <div class="betrieb-card">
+      <div class="beauftragte-photo">
+        <img src="images/vorstand/StefanieGontard.jpg" alt="Stefanie Gontard" loading="lazy" onerror="this.style.display='none'" />
+      </div>
+      <div class="beauftragte-caption">
+        <div class="beauftragte-name">Stefanie Gontard</div>
+        <div class="beauftragte-role">Betriebsleiterin</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Beauftragte -->
+  <p class="section-label reveal">Beauftragte</p>
+  <div class="beauftragte-grid reveal">
+    <div class="beauftragte-card">
+      <div class="beauftragte-photo">
+        <img src="images/vorstand/Raphael_Schulze.jpg" alt="Raphael Schulze" loading="lazy" />
+      </div>
+      <div class="beauftragte-caption">
+        <div class="beauftragte-name">Raphael Schulze</div>
+        <div class="beauftragte-role">Breitensport Reiten</div>
+      </div>
+    </div>
+    <div class="beauftragte-card">
+      <div class="beauftragte-photo">
+        <img src="images/vorstand/Johanna_von_Staden.jpg" alt="Johanna von Staden" loading="lazy" />
+      </div>
+      <div class="beauftragte-caption">
+        <div class="beauftragte-name">Johanna von Staden</div>
+        <div class="beauftragte-role">Breitensport Voltigieren</div>
+      </div>
+    </div>
+    <div class="beauftragte-card">
+      <div class="beauftragte-photo">
+        <img src="images/vorstand/Rita_Jacke.jpg" alt="Rita Jacke" loading="lazy" />
+      </div>
+      <div class="beauftragte-caption">
+        <div class="beauftragte-name">Rita Jacke</div>
+        <div class="beauftragte-role">Prävention im Sport</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Satzung -->
+  <p class="section-label reveal">Vereinsdokumente</p>
+  <div class="satzung-banner reveal">
+    <div class="satzung-text">
+      <h3>Vereinssatzung</h3>
+      <p>Die Satzung des Boberger Reitverein Hamburg e.V. steht als PDF zum Download bereit.</p>
+    </div>
+    <a href="downloads.html" class="btn">Zur Satzung →</a>
+  </div>
+
+  <!-- Mitglied werden -->
+  <p class="section-label reveal">Mitglied werden</p>
+  <div class="mitglied-box reveal">
+    <div>
+      <h2 class="mitglied-heading">Teil des<br>BRV werden</h2>
+    </div>
+    <div>
+      <p class="mitglied-text">
+        Der Boberger Reitverein ist offen für alle, die Freude am Reiten und
+        an der Gemeinschaft haben. Die Beitrittserklärung steht unter
+        Downloads zum Herunterladen bereit. Bei Fragen stehen wir gerne
+        persönlich zur Verfügung.
+      </p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <a href="downloads.html" class="btn btn-dark">Beitrittserklärung →</a>
+        <a href="index.html#kontakt" class="btn btn-dark">Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-col">
+      <img src="images/wappen-transparent.png" alt="BRV Wappen" class="footer-wappen"><div class="footer-logo">Boberger Reitverein Hamburg e.V.</div>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="#" class="social-btn" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+        <a href="#" class="social-btn" aria-label="TikTok"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.78a4.85 4.85 0 01-1.07-.09z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Navigation</div>
+      <ul class="footer-nav">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="vorstand.html">Team</a></li>
+        <li><a href="unterricht.html">Unterricht</a></li>
+        <li><a href="schulpferde.html">Schulpferde</a></li>
+        <li><a href="pensionspferde.html">Pensionspferde</a></li>
+        <li><a href="anfahrt.html">Anfahrt</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Anschrift</div>
+      <div class="footer-address">
+        Billwerder Billdeich 256<br>21033 Hamburg<br><br>
+        040 7340552<br><a href="mailto:info@boberger-reitverein.de" style="color:inherit;text-decoration:none;">info@boberger-reitverein.de</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Boberger Reitverein Hamburg e.V.</span>
+    <div class="footer-legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileOverlay').classList.add('open'));
+  document.getElementById('mobileClose').addEventListener('click', closeMobile);
+  function closeMobile() { document.getElementById('mobileOverlay').classList.remove('open'); }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); observer.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutz — Boberger Reitverein Hamburg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@100;200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-content { padding: clamp(56px, 7vw, 100px) clamp(20px, 4vw, 48px); max-width: 900px; }
+
+    .legal-label {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: clamp(9px, 0.85vw, 10px);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: clamp(24px, 3vw, 32px);
+      display: block;
+    }
+
+    .legal-section {
+      border-top: 1px solid var(--black);
+      padding: clamp(32px, 4vw, 48px) 0;
+    }
+
+    .legal-section:last-child {
+      border-bottom: 1px solid var(--black);
+    }
+
+    .legal-section-num {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: clamp(9px, 0.85vw, 10px);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .legal-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(16px, 1.7vw, 18px);
+      letter-spacing: 0.04em;
+      margin-bottom: clamp(18px, 2.2vw, 24px);
+    }
+
+    .legal-text {
+      font-weight: 300;
+      font-size: clamp(13px, 1.05vw, 14px);
+      line-height: 1.9;
+      color: #444;
+    }
+
+    .legal-text p { margin-bottom: 14px; }
+    .legal-text p:last-child { margin-bottom: 0; }
+
+    .legal-text ul {
+      margin: 12px 0 16px 0;
+      padding-left: 20px;
+    }
+
+    .legal-text ul li {
+      margin-bottom: 8px;
+    }
+
+    .legal-text strong {
+      font-weight: 400;
+      color: var(--black);
+    }
+
+    .legal-text a {
+      color: var(--black);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      word-break: break-word;
+    }
+
+    .legal-contact-box {
+      margin-top: 16px;
+      padding: clamp(18px, 2.2vw, 24px) clamp(20px, 2.6vw, 28px);
+      border: 1px solid rgba(0,0,0,0.12);
+      background: #fafafa;
+      font-size: clamp(13px, 1.05vw, 14px);
+      font-weight: 300;
+      line-height: 1.85;
+      color: #444;
+    }
+
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--black);
+      border: 1px solid var(--black);
+      margin-top: 24px;
+    }
+
+    .rights-item {
+      background: var(--white);
+      padding: clamp(20px, 2.4vw, 24px) clamp(20px, 2.6vw, 28px);
+    }
+
+    .rights-item-art {
+      font-size: clamp(9px, 0.82vw, 10px);
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 200;
+      margin-bottom: 6px;
+    }
+
+    .rights-item-title {
+      font-family: var(--font-display);
+      font-size: clamp(14px, 1.3vw, 15px);
+      margin-bottom: 10px;
+    }
+
+    .rights-item-text {
+      font-size: clamp(12.5px, 1vw, 13px);
+      font-weight: 300;
+      line-height: 1.75;
+      color: #555;
+    }
+
+    /* Tablet */
+    @media (max-width: 720px) {
+      .rights-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/wappen-transparent.png" alt="BRV Wappen" class="nav-wappen">Boberger Reitverein Hamburg e.V.</a>
+  <div class="nav-right">
+    <div class="nav-item">
+      <button>Verein <span class="nav-chevron">▾</span></button>
+      <div class="nav-dropdown">
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="vorstand.html">Team</a>
+        <a href="anlage.html">Anlage</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <button>Angebote <span class="nav-chevron">▾</span></button>
+      <div class="nav-dropdown">
+        <a href="unterricht.html">Unterricht</a>
+        <a href="schulpferde.html">Schulpferde</a>
+        <a href="pensionspferde.html">Pensionspferde</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="aktuelles.html">Aktuelles</a></div>
+    <div class="nav-item"><a href="downloads.html">Downloads</a></div>
+    <div class="nav-item"><a href="anfahrt.html">Anfahrt</a></div>
+    <div class="nav-item"><a href="index.html#kontakt">Kontakt</a></div>
+  </div>
+  <button class="nav-burger" id="burgerBtn"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <div class="mobile-section-label">Verein</div>
+  <a href="ueber-uns.html" onclick="closeMobile()">Über uns</a>
+  <a href="vorstand.html" onclick="closeMobile()">Team</a>
+  <div class="mobile-section-label">Angebote</div>
+  <a href="unterricht.html" onclick="closeMobile()">Unterricht</a>
+  <a href="schulpferde.html" onclick="closeMobile()">Schulpferde</a>
+  <a href="pensionspferde.html" onclick="closeMobile()">Pensionspferde</a>
+  <div class="mobile-section-label">Informationen</div>
+  <a href="aktuelles.html" onclick="closeMobile()">Aktuelles</a>
+  <a href="downloads.html" onclick="closeMobile()">Downloads</a>
+  <a href="anfahrt.html" onclick="closeMobile()">Anfahrt</a>
+  <a href="index.html#kontakt" onclick="closeMobile()">Kontakt</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-bg" style="background:linear-gradient(155deg,#0d1a33 0%,#1A3A6B 45%,#0a1228 100%);"></div>
+  <div class="page-hero-content">
+    <h1 class="page-title">Datenschutz&shy;erklärung</h1>
+    <p class="page-subtitle">Informationen gemäß DSGVO</p>
+  </div>
+</div>
+
+<div class="page-content">
+
+  <span class="legal-label reveal">Stand: Mai 2026</span>
+
+  <!-- 1 -->
+  <div class="legal-section reveal">
+    <div class="legal-section-num">§ 1</div>
+    <h2 class="legal-section-title">Verantwortlicher</h2>
+    <div class="legal-text">
+      <div class="legal-contact-box">
+        Boberger Reitverein Hamburg e.V.<br>
+        Billwerder Billdeich 256<br>
+        21033 Hamburg<br>
+        Deutschland<br><br>
+        Telefon: <a href="tel:+494073340552">040 7340552</a><br>
+        E-Mail: <a href="mailto:info@boberger-reitverein.de">info@boberger-reitverein.de</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="legal-section reveal">
+    <div class="legal-section-num">§ 2</div>
+    <h2 class="legal-section-title">Allgemeine Hinweise zur Datenverarbeitung</h2>
+    <div class="legal-text">
+      <p>Der Schutz Ihrer persönlichen Daten ist uns wichtig. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+      <p>Die Nutzung unserer Website ist grundsätzlich ohne Angabe personenbezogener Daten möglich.</p>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="legal-section reveal">
+    <div class="legal-section-num">§ 3</div>
+    <h2 class="legal-section-title">Hosting</h2>
+    <div class="legal-text">
+      <p>Unsere Website wird bei Amazon Web Services (AWS) gehostet. Anbieter ist:</p>
+      <div class="legal-contact-box">
+        Amazon Web Services EMEA SARL<br>
+        38 Avenue John F. Kennedy<br>
+        L-1855 Luxembourg<br>
+        Luxemburg<br><br>
+        Datenschutzerklärung: <a href="https://aws.amazon.com/de/privacy/" target="_blank" rel="noopener">aws.amazon.com/de/privacy</a>
+      </div>
+      <p style="margin-top:16px;">Beim Aufruf der Website werden durch den Hostinganbieter automatisch Informationen erfasst und in sogenannten Server-Logfiles gespeichert. Dies sind insbesondere:</p>
+      <ul>
+        <li>IP-Adresse</li>
+        <li>Datum und Uhrzeit der Anfrage</li>
+        <li>Browsertyp und Browserversion</li>
+        <li>verwendetes Betriebssystem</li>
+        <li>Referrer-URL</li>
+        <li>Hostname des zugreifenden Rechners</li>
+      </ul>
+      <p>Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO aufgrund unseres berechtigten Interesses an einem sicheren und stabilen Betrieb der Website. Mit AWS wurde ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO geschlossen.</p>
+      <p>Der Quellcode der Website wird bei GitHub (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA) verwaltet und automatisiert auf AWS bereitgestellt. Bei dieser Bereitstellung werden keine personenbezogenen Daten der Besucher der Website verarbeitet.</p>
+      <p>Die Domain wird über die Strato AG, Otto-Ostrowski-Straße 7, 10249 Berlin, Deutschland, bereitgestellt. Im Rahmen der Domainverwaltung verarbeitet Strato in begrenztem Umfang technische Informationen. Weitere Informationen finden Sie unter: <a href="https://www.strato.de/datenschutz/" target="_blank" rel="noopener">strato.de/datenschutz</a></p>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="legal-section reveal">
+    <div class="legal-section-num">§ 4</div>
+    <h2 class="legal-section-title">Kontaktaufnahme</h2>
+    <div class="legal-text">
+      <p>Wenn Sie uns per E-Mail oder telefonisch kontaktieren, werden die von Ihnen übermittelten personenbezogenen Daten (z. B. Name, Telefonnummer, E-Mail-Adresse und Nachricht) ausschließlich zur Bearbeitung Ihrer Anfrage verarbeitet.</p>
+      <p>Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. b DSGVO beziehungsweise Art. 6 Abs. 1 lit. f DSGVO.</p>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="legal-section reveal">
+    <div class="legal-section-num">§ 5</div>
+    <h2 class="legal-section-title">Cookies</h2>
+    <div class="legal-text">
+      <p>Unsere Website verwendet derzeit keine technisch nicht notwendigen Cookies oder Tracking-Technologien.</p>
+      <p>Sofern künftig Cookies eingesetzt werden, die nicht für den Betrieb der Website erforderlich sind, erfolgt dies nur nach Ihrer ausdrücklichen Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.</p>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="legal-section reveal">
+    <div class="legal-section-num">§ 6</div>
+    <h2 class="legal-section-title">SSL- bzw. TLS-Verschlüsselung</h2>
+    <div class="legal-text">
+      <p>Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung.</p>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="legal-section reveal">
+    <div class="legal-section-num">§ 7</div>
+    <h2 class="legal-section-title">Google Fonts</h2>
+    <div class="legal-text">
+      <p>Diese Website nutzt zur einheitlichen Darstellung von Schriftarten sogenannte Google Fonts. Anbieter ist:</p>
+      <div class="legal-contact-box">
+        Google Ireland Limited<br>
+        Gordon House, Barrow Street<br>
+        Dublin 4<br>
+        Irland
+      </div>
+      <p style="margin-top:16px;">Beim Aufruf einer Seite lädt Ihr Browser die benötigten Schriftarten direkt von Google-Servern, um Texte und Schriftarten korrekt anzuzeigen. Dabei wird Ihre IP-Adresse an Google übertragen und kann auf Servern in den USA verarbeitet werden.</p>
+      <p>Die Nutzung von Google Fonts erfolgt im Interesse einer einheitlichen und ansprechenden Darstellung unserer Online-Angebote. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
+      <p>Weitere Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="legal-section reveal">
+    <div class="legal-section-num">§ 8</div>
+    <h2 class="legal-section-title">Nutzung von Google Maps</h2>
+    <div class="legal-text">
+      <p>Diese Website nutzt den Kartendienst Google Maps zur Darstellung interaktiver Karten und zur Bereitstellung von Standortinformationen.</p>
+      <p>Anbieter ist:</p>
+      <div class="legal-contact-box">
+        Google Ireland Limited<br>
+        Gordon House, Barrow Street<br>
+        Dublin 4<br>
+        Irland
+      </div>
+      <p style="margin-top:16px;">Beim Aufruf einer Seite mit eingebundener Google-Maps-Karte können personenbezogene Daten, insbesondere Ihre IP-Adresse, an Google übertragen und auf Servern in den USA verarbeitet werden.</p>
+      <p>Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung unserer Online-Angebote und einer leichten Auffindbarkeit unseres Vereins. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
+      <p>Sofern eine entsprechende Einwilligung abgefragt wird (z. B. über ein Cookie-Banner), erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO. Die Einwilligung kann jederzeit widerrufen werden.</p>
+      <p>Weitere Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="legal-section reveal">
+    <div class="legal-section-num">§ 9</div>
+    <h2 class="legal-section-title">Social Media — Verlinkungen</h2>
+    <div class="legal-text">
+      <p>Auf dieser Website verlinken wir auf unsere Profile bei Instagram, YouTube und TikTok. Die entsprechenden Schaltflächen sind als einfache Verlinkungen ausgeführt — es werden keine Plug-Ins der jeweiligen Anbieter eingebunden. Eine Datenübertragung an die Plattformen findet daher erst statt, wenn Sie aktiv auf einen der Links klicken und die jeweilige Plattform öffnen.</p>
+      <p>Sobald Sie auf einen Social-Media-Link klicken, gelangen Sie zur jeweiligen externen Plattform. Ab diesem Zeitpunkt gelten die Datenschutzbestimmungen des jeweiligen Anbieters. Wir haben keinen Einfluss darauf, welche Daten dort über Sie erhoben und verarbeitet werden.</p>
+      <p>Anbieter und Datenschutzhinweise:</p>
+      <ul>
+        <li><strong>Instagram</strong> — Meta Platforms Ireland Limited, Merrion Road, Dublin 4, Irland · <a href="https://privacycenter.instagram.com/policy" target="_blank" rel="noopener">privacycenter.instagram.com/policy</a></li>
+        <li><strong>YouTube</strong> — Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland · <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+        <li><strong>TikTok</strong> — TikTok Technology Limited, 10 Earlsfort Terrace, Dublin 2, Irland · <a href="https://www.tiktok.com/legal/privacy-policy-eea" target="_blank" rel="noopener">tiktok.com/legal/privacy-policy-eea</a></li>
+      </ul>
+      <p>Rechtsgrundlage für die Verlinkung ist Art. 6 Abs. 1 lit. f DSGVO.</p>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="legal-section reveal">
+    <div class="legal-section-num">§ 10</div>
+    <h2 class="legal-section-title">Rechte der betroffenen Personen</h2>
+    <div class="legal-text" style="margin-bottom:24px;">
+      <p>Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung Ihrer personenbezogenen Daten. Außerdem haben Sie das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren.</p>
+    </div>
+    <div class="rights-grid">
+      <div class="rights-item">
+        <div class="rights-item-art">Art. 15 DSGVO</div>
+        <div class="rights-item-title">Auskunft</div>
+        <p class="rights-item-text">Auskunft über die von uns verarbeiteten personenbezogenen Daten, deren Herkunft, Empfänger und Verarbeitungszweck.</p>
+      </div>
+      <div class="rights-item">
+        <div class="rights-item-art">Art. 16 DSGVO</div>
+        <div class="rights-item-title">Berichtigung</div>
+        <p class="rights-item-text">Unverzügliche Berichtigung unrichtiger oder Vervollständigung unvollständiger personenbezogener Daten.</p>
+      </div>
+      <div class="rights-item">
+        <div class="rights-item-art">Art. 17 DSGVO</div>
+        <div class="rights-item-title">Löschung</div>
+        <p class="rights-item-text">Löschung gespeicherter personenbezogener Daten, sofern die Verarbeitung nicht zur Erfüllung einer rechtlichen Verpflichtung erforderlich ist.</p>
+      </div>
+      <div class="rights-item">
+        <div class="rights-item-art">Art. 18 DSGVO</div>
+        <div class="rights-item-title">Einschränkung</div>
+        <p class="rights-item-text">Einschränkung der Verarbeitung Ihrer personenbezogenen Daten, sofern die gesetzlichen Voraussetzungen hierfür vorliegen.</p>
+      </div>
+      <div class="rights-item">
+        <div class="rights-item-art">Art. 20 DSGVO</div>
+        <div class="rights-item-title">Datenübertragbarkeit</div>
+        <p class="rights-item-text">Erhalt Ihrer personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format.</p>
+      </div>
+      <div class="rights-item">
+        <div class="rights-item-art">Art. 21 DSGVO</div>
+        <div class="rights-item-title">Widerspruch</div>
+        <p class="rights-item-text">Widerspruch gegen die Verarbeitung Ihrer personenbezogenen Daten sowie das Recht zur Beschwerde bei einer Aufsichtsbehörde.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="legal-section reveal">
+    <div class="legal-section-num">§ 11</div>
+    <h2 class="legal-section-title">Speicherdauer</h2>
+    <div class="legal-text">
+      <p>Personenbezogene Daten werden nur so lange gespeichert, wie dies zur Bearbeitung der jeweiligen Anfrage oder aufgrund gesetzlicher Aufbewahrungspflichten erforderlich ist.</p>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="legal-section reveal">
+    <div class="legal-section-num">§ 12</div>
+    <h2 class="legal-section-title">Stand der Datenschutzerklärung</h2>
+    <div class="legal-text">
+      <p>Stand: Mai 2026</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-col">
+      <img src="images/wappen-transparent.png" alt="BRV Wappen" class="footer-wappen"><div class="footer-logo">Boberger Reitverein Hamburg e.V.</div>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="#" class="social-btn" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+        <a href="#" class="social-btn" aria-label="TikTok"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.78a4.85 4.85 0 01-1.07-.09z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Navigation</div>
+      <ul class="footer-nav">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="vorstand.html">Team</a></li>
+        <li><a href="unterricht.html">Unterricht</a></li>
+        <li><a href="schulpferde.html">Schulpferde</a></li>
+        <li><a href="pensionspferde.html">Pensionspferde</a></li>
+        <li><a href="anfahrt.html">Anfahrt</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Anschrift</div>
+      <div class="footer-address">
+        Billwerder Billdeich 256<br>21033 Hamburg<br><br>
+        040 7340552<br><a href="mailto:info@boberger-reitverein.de" style="color:inherit;text-decoration:none;">info@boberger-reitverein.de</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Boberger Reitverein Hamburg e.V.</span>
+    <div class="footer-legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('burgerBtn').addEventListener('click', () => document.getElementById('mobileOverlay').classList.add('open'));
+  document.getElementById('mobileClose').addEventListener('click', closeMobile);
+  function closeMobile() { document.getElementById('mobileOverlay').classList.remove('open'); }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); observer.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

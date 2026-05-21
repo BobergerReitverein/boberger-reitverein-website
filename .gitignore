@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude Code working files
+.claude/
+
+# Logs / temp
+*.log
+/tmp/
+.playwright-mcp/
+
+# Build / deployment artefacts
+node_modules/
+dist/
+build/
+
+# Local env / secrets
+.env
+.env.local
+*.pem
