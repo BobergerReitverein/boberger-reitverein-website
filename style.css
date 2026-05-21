@@ -79,12 +79,10 @@ nav {
 }
 
 .footer-wappen {
-  height: 44px;
+  height: 80px;
   width: auto;
   display: block;
-  margin-bottom: 14px;
-  background: var(--white);
-  padding: 6px 8px;
+  margin-bottom: 18px;
 }
 
 .nav-right {
