@@ -6,12 +6,12 @@ title: Boberger Reitverein Hamburg e.V.
 <!-- HERO -->
 <section class="hero">
   <div class="hero-img-wrap">
-    <img src="/images/slide-1.jpg" alt="Boberger Reitverein" class="hero-single-img">
+    <img src="{{ homepage.heroBildUrl or '/images/slide-1.jpg' }}" alt="Boberger Reitverein" class="hero-single-img">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-title">BOBERGER<br><em>Reitverein</em><br>HAMBURG</h1>
-    <p class="hero-tagline">Seit 1968 im Herzen der Boberger Niederung.</p>
+    <p class="hero-tagline">{{ homepage.heroTagline or 'Seit 1968 im Herzen der Boberger Niederung.' }}</p>
   </div>
   <div class="hero-scroll">
     <span>Scroll</span>
@@ -22,16 +22,26 @@ title: Boberger Reitverein Hamburg e.V.
 <!-- ÜBER UNS -->
 <section id="ueber-uns" class="section-ueber-uns">
   <div class="ueber-grid reveal">
-    <div class="ueber-image"></div>
+    <div class="ueber-image">
+      {% if homepage.uebersUnsBildUrl %}
+        <img src="{{ homepage.uebersUnsBildUrl }}" alt="Über uns" style="width:100%;height:100%;object-fit:cover;">
+      {% endif %}
+    </div>
     <div class="ueber-text">
       <p class="section-label" style="margin-bottom: 32px;">Über uns</p>
       <div class="ueber-year">1968</div>
       <div class="ueber-year-label">Gegründet</div>
-      <h2 class="ueber-heading">Pferdeliebe mit<br>Tradition</h2>
-      <p class="ueber-body">Der 1968 gegründete Boberger Reitverein Hamburg e.V. zählt zu den traditionsreichsten Reitsportvereinen Hamburgs. Er liegt in der Marschenlandschaft im Südosten Hamburgs beim Naturschutzgebiet der Boberger Dünen und ist umgeben von wunderschöner Natur und reetgedeckten historischen Hufnerhäusern.</p>
-      <p class="ueber-body">Bei uns stehen die Pferde an erster Stelle. Helle Boxen, täglicher Weide- oder Paddockgang und eine dreimal tägliche Fütterung sorgen für eine artgerechte Haltung.</p>
-      <p class="ueber-body">Unser Trainerteam bietet abwechslungsreichen Reit- und Voltigierunterricht für jedes Niveau. Ob mit eigenem Pferd oder auf unseren zuverlässigen Schulpferden – hier findet jeder seinen Platz.</p>
-      <p class="ueber-body">Als Verein leben wir Gemeinschaft: Sommerfeste, Turniere, Abzeichenlehrgänge und unsere Pferdeweihnacht gehören genauso dazu wie gemeinsame Arbeitstage und entspannte Abende auf dem Hof.</p>
+      <h2 class="ueber-heading">{{ homepage.uebersUnsTitel or 'Pferdeliebe mit Tradition' }}</h2>
+      {% if homepage.uebersUnsAbsaetze %}
+        {% for absatz in homepage.uebersUnsAbsaetze %}
+          <p class="ueber-body">{{ absatz }}</p>
+        {% endfor %}
+      {% else %}
+        <p class="ueber-body">Der 1968 gegründete Boberger Reitverein Hamburg e.V. zählt zu den traditionsreichsten Reitsportvereinen Hamburgs. Er liegt in der Marschenlandschaft im Südosten Hamburgs beim Naturschutzgebiet der Boberger Dünen und ist umgeben von wunderschöner Natur und reetgedeckten historischen Hufnerhäusern.</p>
+        <p class="ueber-body">Bei uns stehen die Pferde an erster Stelle. Helle Boxen, täglicher Weide- oder Paddockgang und eine dreimal tägliche Fütterung sorgen für eine artgerechte Haltung.</p>
+        <p class="ueber-body">Unser Trainerteam bietet abwechslungsreichen Reit- und Voltigierunterricht für jedes Niveau. Ob mit eigenem Pferd oder auf unseren zuverlässigen Schulpferden – hier findet jeder seinen Platz.</p>
+        <p class="ueber-body">Als Verein leben wir Gemeinschaft: Sommerfeste, Turniere, Abzeichenlehrgänge und unsere Pferdeweihnacht gehören genauso dazu wie gemeinsame Arbeitstage und entspannte Abende auf dem Hof.</p>
+      {% endif %}
       <a href="/ueber-uns/" class="news-link" style="margin-top: 28px;">Mehr →</a>
     </div>
   </div>
@@ -53,22 +63,22 @@ title: Boberger Reitverein Hamburg e.V.
 </section>
 
 <!-- KONTAKT -->
-<section id="kontakt" style="background-image: url('/images/Hintergrundkontakt.jpg'); background-size: cover; background-position: center;">
+<section id="kontakt" style="background-image: url('{{ homepage.kontaktHintergrundbildUrl or '/images/Hintergrundkontakt.jpg' }}'); background-size: cover; background-position: center;">
   <div class="kontakt-overlay"></div>
   <p class="section-label reveal">Kontakt</p>
   <div class="kontakt-box reveal">
     <div class="kontakt-name">Boberger<br>Reitverein<br>Hamburg e.V.</div>
     <div>
       <div class="k-label">Adresse</div>
-      <div class="k-val">Billwerder Billdeich 256<br>21033 Hamburg</div>
+      <div class="k-val">{{ siteSettings.strasse or 'Billwerder Billdeich 256' }}<br>{{ siteSettings.plzOrt or '21033 Hamburg' }}</div>
     </div>
     <div>
       <div class="k-label">Telefon</div>
-      <div class="k-val">040 7340552</div>
+      <div class="k-val">{{ siteSettings.telefon or '040 7340552' }}</div>
     </div>
     <div>
       <div class="k-label">E-Mail</div>
-      <div class="k-val"><a href="mailto:info@boberger-reitverein.de" style="color:inherit;text-decoration:none;">info@boberger-reitverein.de</a></div>
+      <div class="k-val"><a href="mailto:{{ siteSettings.email or 'info@boberger-reitverein.de' }}" style="color:inherit;text-decoration:none;">{{ siteSettings.email or 'info@boberger-reitverein.de' }}</a></div>
       <div style="margin-top:20px;">
         <div class="k-label">Anfahrt</div>
         <div class="k-val"><a href="/anfahrt/" style="color:rgba(255,255,255,0.6);text-decoration:none;">Wegbeschreibung ansehen →</a></div>
