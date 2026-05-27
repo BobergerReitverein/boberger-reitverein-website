@@ -23,7 +23,7 @@
   --font-body:    'DM Sans', sans-serif;
   --font-serif:   'Cormorant', serif;
 
-  --nav-h: 64px;
+  --nav-h: 120px;
 }
 
 html { scroll-behavior: smooth; }
@@ -72,14 +72,14 @@ nav {
 }
 
 .nav-wappen {
-  height: 54px;
+  height: 108px;
   width: auto;
   display: block;
   image-rendering: -webkit-optimize-contrast;
 }
 
 .footer-wappen {
-  height: 80px;
+  height: 160px;
   width: auto;
   display: block;
   margin-bottom: 18px;
@@ -514,7 +514,7 @@ footer {
   nav { padding: 0 28px; }
   .nav-item > a, .nav-item > button { padding: 0 14px; font-size: 12px; letter-spacing: 0.14em; }
   .nav-logo { font-size: 16px; letter-spacing: 0.1em; }
-  .nav-wappen { height: 48px; }
+  .nav-wappen { height: 96px; }
 }
 
 /* Tablet portrait & below — mobile nav kicks in */
@@ -540,7 +540,7 @@ footer {
 @media (max-width: 600px) {
   nav { padding: 0 20px; }
   .nav-logo { font-size: 14px; letter-spacing: 0.08em; gap: 10px; }
-  .nav-wappen { height: 42px; }
+  .nav-wappen { height: 84px; }
 
   .mobile-overlay { padding: 48px 24px; gap: 0; justify-content: flex-start; padding-top: 88px; }
   .mobile-overlay a { font-size: 22px; padding: 12px 0; letter-spacing: 0.05em; }
@@ -556,10 +556,10 @@ footer {
 
 /* Small phone */
 @media (max-width: 420px) {
-  :root { --nav-h: 56px; }
+  :root { --nav-h: 96px; }
   nav { padding: 0 16px; }
   .nav-logo { font-size: 13px; letter-spacing: 0.06em; gap: 8px; }
-  .nav-wappen { height: 38px; }
+  .nav-wappen { height: 76px; }
   .mobile-overlay { padding: 80px 20px 32px; }
   .mobile-overlay a { font-size: 20px; padding: 11px 0; }
 }
