@@ -9,5 +9,10 @@ import anlagePage from './anlagePage';
 import unterrichtPage from './unterrichtPage';
 import pensionspferdePage from './pensionspferdePage';
 import anfahrtPage from './anfahrtPage';
+import vorstandPage from './vorstandPage';
 
-export const schemaTypes = [schulpferd, vorstandsmitglied, newsPost, download, siteSettings, homepage, uebersUnsPage, anlagePage, unterrichtPage, pensionspferdePage, anfahrtPage];
+export const schemaTypes = [
+  schulpferd, vorstandsmitglied, newsPost, download,
+  siteSettings, homepage, uebersUnsPage, anlagePage,
+  unterrichtPage, pensionspferdePage, anfahrtPage, vorstandPage
+];
