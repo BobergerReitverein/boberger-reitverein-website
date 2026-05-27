@@ -34,7 +34,9 @@ navActive: verein
     <div class="photo-gallery reveal">
       {% for foto in anlagePage.galerie %}
         <div class="gal-cell">
-          <img src="{{ foto.bildUrl }}" alt="{{ foto.beschriftung }}" class="gal-img" loading="lazy" />
+          {% if foto.bildUrl %}
+            <img src="{{ foto.bildUrl }}" alt="{{ foto.beschriftung }}" class="gal-img" loading="lazy" />
+          {% endif %}
           <div class="gal-label">{{ foto.beschriftung }}</div>
         </div>
       {% endfor %}
@@ -42,7 +44,7 @@ navActive: verein
   {% else %}
     <div class="photo-gallery reveal">
       <div class="gal-cell">
-        <img src="/images/anlage-einfahrt.jpg" alt="Einfahrt" class="gal-img" loading="lazy" />
+        <img src="/images/anlage-einfahrt.jpg" alt="Reithalle" class="gal-img" loading="lazy" />
         <div class="gal-label">Reithalle</div>
       </div>
       <div class="gal-cell">
@@ -62,7 +64,7 @@ navActive: verein
         <div class="gal-label">Roundpen</div>
       </div>
       <div class="gal-cell">
-        <img src="/images/Hallehinten.jpg" alt="Reithalle" class="gal-img" loading="lazy" />
+        <img src="/images/Hallehinten.jpg" alt="Haupthaus mit Stall" class="gal-img" loading="lazy" />
         <div class="gal-label">Haupthaus mit Stall</div>
       </div>
     </div>
@@ -78,9 +80,9 @@ navActive: verein
     <div class="facility-grid reveal">
       {% for einrichtung in anlagePage.einrichtungen %}
         <div class="facility-item">
-          <div class="facility-num">{{ einrichtung.anzahl }}</div>
+          <div class="facility-num">{{ einrichtung.anzahl or '' }}</div>
           <div class="facility-title">{{ einrichtung.titel }}</div>
-          <p class="facility-text">{{ einrichtung.beschreibung }}</p>
+          <p class="facility-text">{{ einrichtung.beschreibung or '' }}</p>
         </div>
       {% endfor %}
     </div>
