@@ -1,7 +1,6 @@
-// Schema type registry
-// Import and add your content types here as you build them out.
-// Example:
-//   import {postType} from './postType'
-//   export const schemaTypes = [postType]
+import schulpferd from './schulpferd';
+import vorstandsmitglied from './vorstandsmitglied';
+import newsPost from './newsPost';
+import download from './download';
 
-export const schemaTypes = []
+export const schemaTypes = [schulpferd, vorstandsmitglied, newsPost, download];
