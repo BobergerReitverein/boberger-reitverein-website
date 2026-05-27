@@ -16,113 +16,16 @@ navActive: aktuelles
 
   <p class="section-label reveal">Aktuelles 2026</p>
 
-  <div class="article-list reveal">
-
-    <!-- Artikel 1: Feriencamps 2026 -->
-    <article class="article" id="camps-2026">
-      <div class="article-body">
-        <h2 class="article-title">BRV Reit- &amp; Voltigiercamps 2026</h2>
-        <p class="article-lead">
-          Einwöchige Feriencamps für Kinder von 6 bis 12 Jahren — mit Reiten, Voltigieren
-          und jeder Menge Spaß rund ums Pferd. Für Anfänger und Fortgeschrittene.
-        </p>
-        <div class="article-text">
-          <div class="camp-section">
-            <div class="camp-section-label">Reit-Camps — Sommerferien 2026</div>
-            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
-              <li style="font-size:13.5px;font-weight:300;color:#444;">Mo 13.07. – Fr 17.07.2026 &nbsp;·&nbsp; 09:00 – 16:00 Uhr</li>
-              <li style="font-size:13.5px;font-weight:300;color:#444;">Mo 27.07. – Fr 31.07.2026 &nbsp;·&nbsp; 09:00 – 16:00 Uhr</li>
-              <li style="font-size:13.5px;font-weight:300;color:#444;">Mo 10.08. – Fr 14.08.2026 &nbsp;·&nbsp; 09:00 – 16:00 Uhr</li>
-            </ul>
-          </div>
-          <div class="camp-section" style="margin-top:28px;">
-            <div class="camp-section-label">Voltigier-Camps 2026</div>
-            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
-              <li style="font-size:13.5px;font-weight:300;color:#444;">Mo 20.07. – Fr 24.07.2026 &nbsp;·&nbsp; Sommerferien</li>
-              <li style="font-size:13.5px;font-weight:300;color:#444;">Mo 03.08. – Fr 07.08.2026 &nbsp;·&nbsp; Sommerferien</li>
-              <li style="font-size:13.5px;font-weight:300;color:#444;">Mo 26.10. – Fr 30.10.2026 &nbsp;·&nbsp; Herbstferien</li>
-            </ul>
-          </div>
-        </div>
-        <div class="info-box" style="margin-top:28px;">
-          Anmeldeformular unter Downloads. Bei Fragen: <a href="mailto:info@boberger-reitverein.de" style="color:var(--green);">info@boberger-reitverein.de</a>
-        </div>
-        <div class="article-cta">
-          <a href="/downloads/" class="btn">Zum Anmeldeformular →</a>
-        </div>
-      </div>
+  <div class="aktuelles-grid">
+    {% for post in aktuelles %}
+    <article class="news-card reveal">
+      <div class="news-date">{{ post.kategorie }}</div>
+      <h3 class="news-title">{{ post.titel }}</h3>
+      <p class="news-excerpt">{{ post.auszug }}</p>
+      <a href="/aktuelles/" class="news-link">Mehr erfahren →</a>
     </article>
-
-    <!-- Artikel 2: Arbeitstage 2026 -->
-    <article class="article" id="arbeitstage-2026">
-      <div class="article-body">
-        <h2 class="article-title">Arbeitstage 2026</h2>
-        <p class="article-lead">
-          Gemeinsam anpacken und die Anlage auf Vordermann bringen — vier Mal im Jahr,
-          wenn alle Mitglieder herzlich willkommen sind.
-        </p>
-        <div class="article-text">
-          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0;">
-            <li style="display:grid;grid-template-columns:120px 1fr;gap:16px;font-size:13.5px;font-weight:300;color:#444;padding:14px 0;border-bottom:1px solid #eee;">
-              <span style="color:var(--green);font-weight:400;">21. Februar</span>
-              <span>Rückschnitt + Frühjahrsputz</span>
-            </li>
-            <li style="display:grid;grid-template-columns:120px 1fr;gap:16px;font-size:13.5px;font-weight:300;color:#444;padding:14px 0;border-bottom:1px solid #eee;">
-              <span style="color:var(--green);font-weight:400;">13. Juni</span>
-              <span>„Alles einmal frisch!" — Streichen, Holzschutz, Hamburger vom Grill</span>
-            </li>
-            <li style="display:grid;grid-template-columns:120px 1fr;gap:16px;font-size:13.5px;font-weight:300;color:#444;padding:14px 0;border-bottom:1px solid #eee;">
-              <span style="color:var(--green);font-weight:400;">05. September</span>
-              <span>„Wir machen unseren Hof turnierfein!"</span>
-            </li>
-            <li style="display:grid;grid-template-columns:120px 1fr;gap:16px;font-size:13.5px;font-weight:300;color:#444;padding:14px 0;">
-              <span style="color:var(--green);font-weight:400;">07. November</span>
-              <span>„Wir machen die Anlage winterfest!"</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
-    <!-- Artikel 3: Jahresplanung 2026 -->
-    <article class="article" id="jahresplanung-2026">
-      <div class="article-body">
-        <h2 class="article-title">Jahresplanung 2026</h2>
-        <p class="article-lead">
-          Alle Termine, Veranstaltungen und Versammlungen auf einen Blick.
-        </p>
-        <div class="article-text">
-          <div class="camp-table-wrap">
-          <table class="camp-table">
-            <thead>
-              <tr>
-                <th>Datum</th>
-                <th>Veranstaltung</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>21.02.</td><td>Arbeitstag (Rückschnitt + Frühjahrsputz)</td></tr>
-              <tr><td>21.03.</td><td>Weidevorbereitung</td></tr>
-              <tr><td>09.04.</td><td>Einstellerversammlung (19:00)</td></tr>
-              <tr><td>02./03.05.</td><td>Evtl. Anweidewochenende</td></tr>
-              <tr><td>30.05.</td><td>Mitgliederversammlung (14:00)</td></tr>
-              <tr><td>13.06.</td><td>Arbeitstag ("Alles einmal frisch!")</td></tr>
-              <tr><td>04.07.</td><td>Sommerfest + Pyjamaparty für Kinder</td></tr>
-              <tr><td>28.08.</td><td>Einstellerversammlung (19:00)</td></tr>
-              <tr><td>05.09.</td><td>Arbeitstag ("Wir machen unseren Hof turnierfein!")</td></tr>
-              <tr><td>12./13.09.</td><td>Evtl. Hausturnier</td></tr>
-              <tr><td>10.10.</td><td>Evtl. Abzeichenprüfung</td></tr>
-              <tr><td>07.11.</td><td>Arbeitstag ("Wir machen die Anlage winterfest!")</td></tr>
-              <tr><td>21.11.</td><td>Mitgliederversammlung (11:00)</td></tr>
-              <tr><td>13.12.</td><td>Weihnachtsfeier</td></tr>
-            </tbody>
-          </table>
-          </div>
-        </div>
-      </div>
-    </article>
-
-  </div><!-- /article-list -->
+    {% endfor %}
+  </div>
 
   <!-- Kontakt CTA -->
   <div class="aktuelles-cta">

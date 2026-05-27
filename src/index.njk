@@ -41,24 +41,14 @@ title: Boberger Reitverein Hamburg e.V.
 <section id="aktuelles">
   <p class="section-label reveal">Aktuelles</p>
   <div class="aktuelles-grid reveal">
+    {% for post in aktuelles | slice(0, 3) %}
     <article class="news-card">
-      <div class="news-date">Feriencamps</div>
-      <h3 class="news-title">Feriencamps 2026</h3>
-      <p class="news-excerpt">Auch 2026 bieten wir wieder spannende Reitferiencamps für Kinder und Jugendliche an – mit viel Zeit im Sattel, Pflegekunde und gemeinsamem Spaß.</p>
+      <div class="news-date">{{ post.kategorie }}</div>
+      <h3 class="news-title">{{ post.titel }}</h3>
+      <p class="news-excerpt">{{ post.auszug }}</p>
       <a href="/aktuelles/" class="news-link">Mehr erfahren →</a>
     </article>
-    <article class="news-card">
-      <div class="news-date">Arbeitstag</div>
-      <h3 class="news-title">Arbeitstag — 13. Juni 2026</h3>
-      <p class="news-excerpt">„Alles einmal frisch!" — Streichen, Holzschutz und am Abend Hamburger vom Grill. Alle Mitglieder sind herzlich eingeladen.</p>
-      <a href="/aktuelles/" class="news-link">Mehr erfahren →</a>
-    </article>
-    <article class="news-card">
-      <div class="news-date">Jahresplanung</div>
-      <h3 class="news-title">Jahresplanung 2026</h3>
-      <p class="news-excerpt">Sommerfest, Turniere, Mitgliederversammlungen, Abzeichenprüfungen und Weihnachtsfeier – alle Termine für 2026 auf einen Blick.</p>
-      <a href="/aktuelles/" class="news-link">Alle Termine →</a>
-    </article>
+    {% endfor %}
   </div>
 </section>
 
