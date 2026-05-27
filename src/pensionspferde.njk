@@ -4,7 +4,7 @@ title: Pensionspferde — Boberger Reitverein Hamburg
 navActive: angebote
 ---
 
-<div class="page-hero" style="background-image: url('/images/Pensionspferde.jpg'); background-size: 100% auto; background-position: center 5%;">
+<div class="page-hero" style="background-image: url('{{ pensionspferdePage.heroBildUrl or '/images/Pensionspferde.jpg' }}'); background-size: 100% auto; background-position: center 5%;">
   <div class="page-hero-bg" style="opacity: 1; background: linear-gradient(160deg, rgba(13,26,51,0.78) 0%, rgba(26,58,107,0.68) 45%, rgba(10,18,40,0.80) 100%);"></div>
   <div class="page-hero-content">
     <h1 class="page-title">Pensionspferde</h1>
@@ -13,27 +13,25 @@ navActive: angebote
 
 <div class="page-content">
 
-  <!-- Intro -->
   <p class="section-label reveal">Als Einsteller im Boberger Reitverein</p>
   <div class="pension-intro reveal">
     <div class="pension-intro-img">
-      <img src="/images/slide-6.jpg" alt="Pensionspferde BRV" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" loading="lazy" />
+      <img src="{{ pensionspferdePage.introBildUrl or '/images/slide-6.jpg' }}" alt="Pensionspferde BRV" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" loading="lazy" />
     </div>
     <div class="pension-intro-text">
-      <h2 class="pension-intro-heading">Dein Pferd<br>bei uns zu Hause</h2>
-      <p class="pension-intro-body">
-        Im Pensionsbetrieb stehen verschiedene Boxenarten (Paddockboxen, Außen- und Innenboxen) zur Verfügung.
-      </p>
-      <p class="pension-intro-body">
-        Der tägliche Weidegang im Sommer und die tägliche Paddockzeit im Winter gehören ebenso zum Standard wie die dreimal tägliche bedarfsgerechte Fütterung mit Raufutter und Kraftfutter.
-      </p>
-      <p class="pension-intro-body">
-        Unsere Anlage und die vielseitigen Trainingsmöglichkeiten bieten optimale Voraussetzungen für eine artgerechte Pferdehaltung und schaffen beste Bedingungen für Training und Wohlbefinden von Pferd und Reitern.
-      </p>
+      <h2 class="pension-intro-heading">{{ pensionspferdePage.introTitel or 'Dein Pferd bei uns zu Hause' }}</h2>
+      {% if pensionspferdePage.introAbsaetze %}
+        {% for absatz in pensionspferdePage.introAbsaetze %}
+          <p class="pension-intro-body">{{ absatz }}</p>
+        {% endfor %}
+      {% else %}
+        <p class="pension-intro-body">Im Pensionsbetrieb stehen verschiedene Boxenarten (Paddockboxen, Außen- und Innenboxen) zur Verfügung.</p>
+        <p class="pension-intro-body">Der tägliche Weidegang im Sommer und die tägliche Paddockzeit im Winter gehören ebenso zum Standard wie die dreimal tägliche bedarfsgerechte Fütterung mit Raufutter und Kraftfutter.</p>
+        <p class="pension-intro-body">Unsere Anlage und die vielseitigen Trainingsmöglichkeiten bieten optimale Voraussetzungen für eine artgerechte Pferdehaltung und schaffen beste Bedingungen für Training und Wohlbefinden von Pferd und Reitern.</p>
+      {% endif %}
     </div>
   </div>
 
-  <!-- Downloads CTA -->
   <div class="reveal" style="margin-top: 16px;">
     <a href="/downloads/" class="btn">Alle Informationen &amp; Formulare →</a>
   </div>

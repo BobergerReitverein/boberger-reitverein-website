@@ -6,5 +6,7 @@ import siteSettings from './siteSettings';
 import homepage from './homepage';
 import uebersUnsPage from './uebersUnsPage';
 import anlagePage from './anlagePage';
+import unterrichtPage from './unterrichtPage';
+import pensionspferdePage from './pensionspferdePage';
 
-export const schemaTypes = [schulpferd, vorstandsmitglied, newsPost, download, siteSettings, homepage, uebersUnsPage, anlagePage];
+export const schemaTypes = [schulpferd, vorstandsmitglied, newsPost, download, siteSettings, homepage, uebersUnsPage, anlagePage, unterrichtPage, pensionspferdePage];
