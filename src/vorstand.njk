@@ -19,14 +19,14 @@ navActive: verein
   <div class="gruppe-foto-wrap reveal">
     <div class="gruppe-foto">
       {% if vorstandPage.gruppenFotoUrl %}
-        <img src="{{ vorstandPage.gruppenFotoUrl }}" alt="Gruppenfoto Vereinsvorstand" loading="lazy" />
+        <img src="{{ vorstandPage.gruppenFotoUrl }}" alt="Gruppenfoto Vereinsvorstand" loading="lazy" onerror="this.style.display='none'" />
       {% else %}
         <img src="/images/vorstand/Gruppenfoto.jpg" alt="Gruppenfoto Vereinsvorstand" loading="lazy" onerror="this.style.display='none'" />
       {% endif %}
       <span class="gruppe-foto-hint">Gruppenfoto Vereinsvorstand</span>
     </div>
     <div class="gruppe-foto-caption">
-      {{ vorstandPage.gruppenFotoBeschriftung or 'Christiane Feist (Vorsitzende) | Isabelle Haesler (Stellv. Vorsitzende) | Katharina Lechelt (Schatzmeisterin) | Lilli Schmidt (Jugendwartin) | Janine Band (Technische Leiterin)' }}
+      {% if vorstandPage.gruppenFotoBeschriftung %}{{ vorstandPage.gruppenFotoBeschriftung }}{% else %}Christiane Feist (Vorsitzende) &nbsp;|&nbsp; Isabelle Haesler (Stellv. Vorsitzende) &nbsp;|&nbsp; Katharina Lechelt (Schatzmeisterin) &nbsp;|&nbsp; Lilli Schmidt (Jugendwartin) &nbsp;|&nbsp; Janine Band (Technische Leiterin){% endif %}
     </div>
   </div>
 
@@ -36,7 +36,7 @@ navActive: verein
     <div class="betrieb-card">
       <div class="beauftragte-photo">
         {% if vorstandPage.betriebsleiterinFotoUrl %}
-          <img src="{{ vorstandPage.betriebsleiterinFotoUrl }}" alt="{{ vorstandPage.betriebsleiterinName or 'Betriebsleiterin' }}" loading="lazy" />
+          <img src="{{ vorstandPage.betriebsleiterinFotoUrl }}" alt="{{ vorstandPage.betriebsleiterinName or 'Stefanie Gontard' }}" loading="lazy" onerror="this.style.display='none'" />
         {% else %}
           <img src="/images/vorstand/StefanieGontard.jpg" alt="Stefanie Gontard" loading="lazy" onerror="this.style.display='none'" />
         {% endif %}
