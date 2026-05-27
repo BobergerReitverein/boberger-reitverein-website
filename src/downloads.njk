@@ -14,113 +14,31 @@ navActive: downloads
 
 <div class="page-content">
 
-  <!-- Allgemein -->
-  <div class="downloads-section reveal">
-    <p class="section-label">Allgemeines</p>
+  {% set kategorien = downloads | groupby('kategorie') %}
+  {% for kategorie, items in kategorien %}
+  <div class="download-section reveal">
+    <p class="section-label">{{ kategorie }}</p>
     <ul class="dl-list">
+      {% for item in items %}
       <li class="dl-item">
-        <div class="dl-info">
-          <div class="dl-name">Beitrittserklärung</div>
-          <div class="dl-desc">Antrag auf Vereinsmitgliedschaft beim BRV inkl. SEPA-Lastschriftmandat — ausgefüllt an den Vorstand senden.</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <span class="dl-tag">PDF</span>
-          <a href="/downloads/BRV-Beitrittserklarung-2026.pdf" class="dl-btn" download>Herunterladen ↓</a>
-        </div>
+        {% if item.dateiUrl %}
+          <div class="dl-info">
+            <div class="dl-name">{{ item.name }}</div>
+            {% if item.datum %}<div class="dl-desc">Stand: {{ item.datum }}</div>{% endif %}
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span class="dl-tag">PDF</span>
+            <a href="{{ item.dateiUrl }}" target="_blank" rel="noopener" class="dl-btn" download>Herunterladen ↓</a>
+          </div>
+        {% else %}
+          <div class="dl-info">
+            <div class="dl-name">{{ item.name }} (bald verfügbar)</div>
+          </div>
+        {% endif %}
       </li>
-      <li class="dl-item">
-        <div class="dl-info">
-          <div class="dl-name">Vereinssatzung</div>
-          <div class="dl-desc">Die Satzung des Boberger Reitverein Hamburg e.V. gemäß Beschluss vom 22.03.2013.</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <span class="dl-tag">PDF</span>
-          <a href="/downloads/BRV-Satzung.pdf" class="dl-btn" download>Herunterladen ↓</a>
-        </div>
-      </li>
+      {% endfor %}
     </ul>
   </div>
-
-  <!-- Preislisten -->
-  <div class="downloads-section reveal">
-    <p class="section-label">Preislisten</p>
-    <ul class="dl-list">
-      <li class="dl-item">
-        <div class="dl-info">
-          <div class="dl-name">Preisliste Schulunterricht &amp; Voltigieren</div>
-          <div class="dl-desc">Gruppenunterricht, Privatstunden, Reitbeteiligung, Einsteigerkurse — gültig ab 01.08.2025.</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <span class="dl-tag">PDF</span>
-          <a href="/downloads/Preisliste-Schulunterricht.pdf" class="dl-btn" download>Herunterladen ↓</a>
-        </div>
-      </li>
-      <li class="dl-item">
-        <div class="dl-info">
-          <div class="dl-name">Preisliste Pensionspferde &amp; Einsteller</div>
-          <div class="dl-desc">Boxenvermietung, Zusatzleistungen, Gastboxen — gültig ab 01.08.2025.</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <span class="dl-tag">PDF</span>
-          <a href="/downloads/Preisliste-Einsteller.pdf" class="dl-btn" download>Herunterladen ↓</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Unterricht -->
-  <div class="downloads-section reveal">
-    <p class="section-label">Unterricht &amp; Anmeldung</p>
-    <ul class="dl-list">
-      <li class="dl-item">
-        <div class="dl-info">
-          <div class="dl-name">Information für die Warteliste</div>
-          <div class="dl-desc">Fragebogen mit Vorkenntnissen für Interessierte am Reit- oder Voltigierunterricht — bitte ausgefüllt einsenden.</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <span class="dl-tag">PDF</span>
-          <a href="/downloads/Information-Warteliste.pdf" class="dl-btn" download>Herunterladen ↓</a>
-        </div>
-      </li>
-      <li class="dl-item">
-        <div class="dl-info">
-          <div class="dl-name">Anmeldung Feriencamps 2026</div>
-          <div class="dl-desc">Anmeldeformular für die Reit- und Voltigiercamps 2026. Ausgefüllt per E-Mail an <a href="mailto:info@boberger-reitverein.de" style="color:inherit;">info@boberger-reitverein.de</a> senden.</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <span class="dl-tag" style="border-color:var(--black);color:var(--black);">Neu</span>
-          <span class="dl-tag">PDF</span>
-          <a href="/downloads/Anmeldung-Feriencamps-2026.pdf" class="dl-btn" download>Herunterladen ↓</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Stundenpläne -->
-  <div class="downloads-section reveal">
-    <p class="section-label">Stundenpläne</p>
-    <ul class="dl-list">
-      <li class="dl-item">
-        <div class="dl-info">
-          <div class="dl-name">Stundenplan Reitangebot</div>
-          <div class="dl-desc">Aktuelle Trainingszeiten und Gruppenaufteilung für den Reitunterricht.</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <span class="dl-tag">PDF</span>
-          <a href="/downloads/Stundenplan%20Reiten%20Stand%2020.05.2026.pdf" class="dl-btn" download>Herunterladen ↓</a>
-        </div>
-      </li>
-      <li class="dl-item">
-        <div class="dl-info">
-          <div class="dl-name">Stundenplan Voltigierangebote</div>
-          <div class="dl-desc">Aktuelle Trainingszeiten und Gruppenaufteilung für das Voltigieren.</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <span class="dl-tag">PDF</span>
-          <a href="/downloads/Stundenplan%20Voltigieren%20Stand%2012.05.2026.pdf" class="dl-btn" download>Herunterladen ↓</a>
-        </div>
-      </li>
-    </ul>
-  </div>
+  {% endfor %}
 
 </div>
