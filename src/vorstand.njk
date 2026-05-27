@@ -44,36 +44,24 @@ navActive: verein
     </div>
   </div>
 
-  <!-- Beauftragte -->
-  <p class="section-label reveal">Beauftragte</p>
+  <!-- Vorstandsmitglieder -->
+  <p class="section-label reveal">Vorstandsmitglieder</p>
   <div class="beauftragte-grid reveal">
+    {% for mitglied in vorstand %}
     <div class="beauftragte-card">
       <div class="beauftragte-photo">
-        <img src="/images/vorstand/Raphael_Schulze.jpg" alt="Raphael Schulze" loading="lazy" />
+        {% if mitglied.fotoUrl %}
+          <img src="{{ mitglied.fotoUrl }}" alt="{{ mitglied.name }}" loading="lazy">
+        {% else %}
+          <div class="vorstand-placeholder" style="width:100%;height:100%;background:linear-gradient(135deg,#1C3A2A,#0a1208);"></div>
+        {% endif %}
       </div>
       <div class="beauftragte-caption">
-        <div class="beauftragte-name">Raphael Schulze</div>
-        <div class="beauftragte-role">Breitensport Reiten</div>
+        <div class="beauftragte-name">{{ mitglied.name }}</div>
+        <div class="beauftragte-role">{{ mitglied.rolle }}</div>
       </div>
     </div>
-    <div class="beauftragte-card">
-      <div class="beauftragte-photo">
-        <img src="/images/vorstand/Johanna_von_Staden.jpg" alt="Johanna von Staden" loading="lazy" />
-      </div>
-      <div class="beauftragte-caption">
-        <div class="beauftragte-name">Johanna von Staden</div>
-        <div class="beauftragte-role">Breitensport Voltigieren</div>
-      </div>
-    </div>
-    <div class="beauftragte-card">
-      <div class="beauftragte-photo">
-        <img src="/images/vorstand/Rita_Jacke.jpg" alt="Rita Jacke" loading="lazy" />
-      </div>
-      <div class="beauftragte-caption">
-        <div class="beauftragte-name">Rita Jacke</div>
-        <div class="beauftragte-role">Prävention im Sport</div>
-      </div>
-    </div>
+    {% endfor %}
   </div>
 
   <!-- Satzung -->
