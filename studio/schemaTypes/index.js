@@ -8,5 +8,6 @@ import uebersUnsPage from './uebersUnsPage';
 import anlagePage from './anlagePage';
 import unterrichtPage from './unterrichtPage';
 import pensionspferdePage from './pensionspferdePage';
+import anfahrtPage from './anfahrtPage';
 
-export const schemaTypes = [schulpferd, vorstandsmitglied, newsPost, download, siteSettings, homepage, uebersUnsPage, anlagePage, unterrichtPage, pensionspferdePage];
+export const schemaTypes = [schulpferd, vorstandsmitglied, newsPost, download, siteSettings, homepage, uebersUnsPage, anlagePage, unterrichtPage, pensionspferdePage, anfahrtPage];
