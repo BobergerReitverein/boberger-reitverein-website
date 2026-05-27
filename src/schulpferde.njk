@@ -17,7 +17,7 @@ navActive: angebote
   <!-- Stats -->
   <div class="stats-row reveal">
     <div class="stat-cell">
-      <div class="stat-num">12</div>
+      <div class="stat-num">{{ schulpferde | length }}</div>
       <div class="stat-label">Schulpferde</div>
     </div>
     <div class="stat-cell">
@@ -44,128 +44,25 @@ navActive: angebote
     Ihr könnt die Pferde im Reitunterricht, in der Reitpädagogik, unseren Feriencamps und beim Voltigieren erleben.
   </p>
 
-  <div class="pferde-grid reveal">
-
-    <div class="pferd-card">
+  <div class="pferde-grid">
+    {% for pferd in schulpferde %}
+    <div class="pferd-card reveal">
       <div class="pferd-photo">
-        <img src="/images/schulpferde/Andiamo.jpg" alt="Andiamo" />
+        {% if pferd.bildUrl %}
+          <img src="{{ pferd.bildUrl }}" alt="{{ pferd.name }}" loading="lazy">
+        {% else %}
+          <div style="width:100%;height:100%;background:#e0ddd8;"></div>
+        {% endif %}
+        {% if pferd.voltigieren %}
+          <span class="pferd-tag voltigieren-tag">Voltigieren</span>
+        {% endif %}
       </div>
       <div class="pferd-info">
-        <div class="pferd-name">Andiamo</div>
-        <div class="pferd-meta">Rheinländer</div>
+        <div class="pferd-name">{{ pferd.name }}</div>
+        <div class="pferd-meta">{{ pferd.rasse }}</div>
       </div>
     </div>
-
-    <div class="pferd-card">
-      <div class="pferd-photo">
-        <img src="/images/schulpferde/Anna.jpg" alt="Anna" />
-      </div>
-      <div class="pferd-info">
-        <div class="pferd-name">Anna</div>
-        <div class="pferd-meta">Haflinger</div>
-      </div>
-    </div>
-
-    <div class="pferd-card">
-      <div class="pferd-photo">
-        <img src="/images/schulpferde/Boobo.jpg" alt="Boobo" />
-      </div>
-      <div class="pferd-info">
-        <div class="pferd-name">Boobo</div>
-        <div class="pferd-meta">Littauischer Cob</div>
-      </div>
-    </div>
-
-    <div class="pferd-card">
-      <div class="pferd-photo">
-        <img src="/images/schulpferde/Kitaro.jpg" alt="Kitaro" />
-      </div>
-      <div class="pferd-info">
-        <div class="pferd-name">Kitaro</div>
-        <div class="pferd-meta">Welsh A</div>
-      </div>
-    </div>
-
-    <div class="pferd-card">
-      <div class="pferd-photo">
-        <img src="/images/schulpferde/Legenda.jpg" alt="Legenda" />
-      </div>
-      <div class="pferd-info">
-        <div class="pferd-name">Legenda</div>
-        <div class="pferd-meta">Lettischer Cob</div>
-      </div>
-    </div>
-
-    <div class="pferd-card">
-      <div class="pferd-photo">
-        <img src="/images/schulpferde/Cikita.jpg" alt="Cikita" />
-      </div>
-      <div class="pferd-info">
-        <div class="pferd-name">Cikita</div>
-        <div class="pferd-meta">Littauischer Cob</div>
-      </div>
-    </div>
-
-    <div class="pferd-card">
-      <div class="pferd-photo">
-        <img src="/images/schulpferde/Nikki.jpg" alt="Nikki" />
-      </div>
-      <div class="pferd-info">
-        <div class="pferd-name">Nikki</div>
-        <div class="pferd-meta">Fjordpferd × Friese</div>
-      </div>
-    </div>
-
-    <div class="pferd-card">
-      <div class="pferd-photo">
-        <img src="/images/schulpferde/Nuri.jpg" alt="Nuri" />
-      </div>
-      <div class="pferd-info">
-        <div class="pferd-name">Nuri</div>
-        <div class="pferd-meta">Fjordpferd</div>
-      </div>
-    </div>
-
-    <div class="pferd-card">
-      <div class="pferd-photo">
-        <img src="/images/schulpferde/Silva.jpg" alt="Silva" />
-      </div>
-      <div class="pferd-info">
-        <div class="pferd-name">Silva</div>
-        <div class="pferd-meta">Littauischer Cob</div>
-      </div>
-    </div>
-
-    <div class="pferd-card">
-      <div class="pferd-photo">
-        <img src="/images/schulpferde/Sky.jpg" alt="Sky" />
-      </div>
-      <div class="pferd-info">
-        <div class="pferd-name">Sky</div>
-        <div class="pferd-meta">Haflinger</div>
-      </div>
-    </div>
-
-    <div class="pferd-card">
-      <div class="pferd-photo">
-        <img src="/images/schulpferde/Sole.jpg" alt="Solé" />
-      </div>
-      <div class="pferd-info">
-        <div class="pferd-name">Solé</div>
-        <div class="pferd-meta">Haflinger</div>
-      </div>
-    </div>
-
-    <div class="pferd-card">
-      <div class="pferd-photo">
-        <img src="/images/schulpferde/Toenchen.jpg" alt="Tönchen" />
-      </div>
-      <div class="pferd-info">
-        <div class="pferd-name">Tönchen</div>
-        <div class="pferd-meta">Shetlandpony</div>
-      </div>
-    </div>
-
+    {% endfor %}
   </div>
 
 </div>
