@@ -21,8 +21,10 @@
 
 # Build / deployment artefacts
 node_modules/
+studio/node_modules/
 dist/
 build/
+_site/
 
 # Local env / secrets
 .env
