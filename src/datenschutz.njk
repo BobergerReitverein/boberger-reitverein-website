@@ -12,8 +12,9 @@ title: Datenschutz — Boberger Reitverein Hamburg
 </div>
 
 <div class="page-content">
+<div class="legal-inner">
 
-  <span class="legal-label reveal">Stand: Mai 2026</span>
+  <span class="legal-label reveal">Stand: {{ datenschutzPage.stand or 'Mai 2026' }}</span>
 
   <!-- 1 -->
   <div class="legal-section reveal">
@@ -21,12 +22,12 @@ title: Datenschutz — Boberger Reitverein Hamburg
     <h2 class="legal-section-title">Verantwortlicher</h2>
     <div class="legal-text">
       <div class="legal-contact-box">
-        Boberger Reitverein Hamburg e.V.<br>
-        Billwerder Billdeich 256<br>
-        21033 Hamburg<br>
+        {{ siteSettings.vereinsname or 'Boberger Reitverein Hamburg e.V.' }}<br>
+        {{ siteSettings.strasse or 'Billwerder Billdeich 256' }}<br>
+        {{ siteSettings.plzOrt or '21033 Hamburg' }}<br>
         Deutschland<br><br>
-        Telefon: <a href="tel:+494073340552">040 7340552</a><br>
-        E-Mail: <a href="mailto:info@boberger-reitverein.de">info@boberger-reitverein.de</a>
+        Telefon: <a href="tel:{{ siteSettings.telefon or '040 7340552' }}">{{ siteSettings.telefon or '040 7340552' }}</a><br>
+        E-Mail: <a href="mailto:{{ siteSettings.email or 'info@boberger-reitverein.de' }}">{{ siteSettings.email or 'info@boberger-reitverein.de' }}</a>
       </div>
     </div>
   </div>
@@ -208,8 +209,9 @@ title: Datenschutz — Boberger Reitverein Hamburg
     <div class="legal-section-num">§ 12</div>
     <h2 class="legal-section-title">Stand der Datenschutzerklärung</h2>
     <div class="legal-text">
-      <p>Stand: Mai 2026</p>
+      <p>Stand: {{ datenschutzPage.stand or 'Mai 2026' }}</p>
     </div>
   </div>
 
+</div>
 </div>

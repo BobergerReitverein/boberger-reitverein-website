@@ -12,6 +12,7 @@ title: Impressum — Boberger Reitverein Hamburg
 </div>
 
 <div class="page-content">
+<div class="legal-inner">
 
   <span class="legal-label reveal">Pflichtangaben</span>
 
@@ -19,16 +20,16 @@ title: Impressum — Boberger Reitverein Hamburg
     <h2 class="legal-section-title">Betreiber</h2>
     <dl class="legal-block">
       <dt>Vereinsname</dt>
-      <dd>Boberger Reitverein Hamburg e.V.</dd>
+      <dd>{{ siteSettings.vereinsname or 'Boberger Reitverein Hamburg e.V.' }}</dd>
 
       <dt>Anschrift</dt>
-      <dd>Billwerder Billdeich 256<br>21033 Hamburg<br>Deutschland</dd>
+      <dd>{{ siteSettings.strasse or 'Billwerder Billdeich 256' }}<br>{{ siteSettings.plzOrt or '21033 Hamburg' }}<br>Deutschland</dd>
 
       <dt>Telefon</dt>
-      <dd><a href="tel:+494073340552">040 7340552</a></dd>
+      <dd><a href="tel:{{ siteSettings.telefon or '040 7340552' }}">{{ siteSettings.telefon or '040 7340552' }}</a></dd>
 
       <dt>E-Mail</dt>
-      <dd><a href="mailto:info@boberger-reitverein.de">info@boberger-reitverein.de</a></dd>
+      <dd><a href="mailto:{{ siteSettings.email or 'info@boberger-reitverein.de' }}">{{ siteSettings.email or 'info@boberger-reitverein.de' }}</a></dd>
     </dl>
   </div>
 
@@ -36,6 +37,12 @@ title: Impressum — Boberger Reitverein Hamburg
     <h2 class="legal-section-title">Vertretungsberechtigter Vorstand</h2>
     <p class="legal-text" style="margin-bottom:16px;">Vertreten durch den Vorstand gemäß § 26 BGB:</p>
     <dl class="legal-block">
+      {% if impressumPage.vorstandEintraege and impressumPage.vorstandEintraege.length %}
+        {% for eintrag in impressumPage.vorstandEintraege %}
+        <dt>{{ eintrag.rolle }}</dt>
+        <dd>{{ eintrag.name }}</dd>
+        {% endfor %}
+      {% else %}
       <dt>Vorsitzende</dt>
       <dd>Christiane Feist</dd>
 
@@ -44,6 +51,7 @@ title: Impressum — Boberger Reitverein Hamburg
 
       <dt>Schatzmeisterin</dt>
       <dd>Katharina Lechelt</dd>
+      {% endif %}
     </dl>
   </div>
 
@@ -51,10 +59,10 @@ title: Impressum — Boberger Reitverein Hamburg
     <h2 class="legal-section-title">Registereintrag</h2>
     <dl class="legal-block">
       <dt>Registergericht</dt>
-      <dd>Amtsgericht Hamburg</dd>
+      <dd>{{ impressumPage.registergericht or 'Amtsgericht Hamburg' }}</dd>
 
       <dt>Registernummer</dt>
-      <dd>VR 7675</dd>
+      <dd>{{ impressumPage.registernummer or 'VR 7675' }}</dd>
     </dl>
   </div>
 
@@ -63,10 +71,10 @@ title: Impressum — Boberger Reitverein Hamburg
     <p class="legal-text" style="margin-bottom:16px;">Gemäß § 18 Abs. 2 MStV:</p>
     <dl class="legal-block">
       <dt>Anschrift</dt>
-      <dd>Boberger Reitverein Hamburg e.V.<br>Billwerder Billdeich 256<br>21033 Hamburg</dd>
+      <dd>{{ siteSettings.vereinsname or 'Boberger Reitverein Hamburg e.V.' }}<br>{{ siteSettings.strasse or 'Billwerder Billdeich 256' }}<br>{{ siteSettings.plzOrt or '21033 Hamburg' }}</dd>
 
       <dt>Vertreten durch</dt>
-      <dd>Die Vorsitzende Christiane Feist</dd>
+      <dd>{{ impressumPage.inhaltlichVerantwortlichTitel or 'Die Vorsitzende' }} {{ impressumPage.inhaltlichVerantwortlichName or 'Christiane Feist' }}</dd>
     </dl>
   </div>
 
@@ -96,9 +104,20 @@ title: Impressum — Boberger Reitverein Hamburg
     <h2 class="legal-section-title">Bildnachweise</h2>
     <dl class="legal-block">
       <dt>Fotografie</dt>
+      {% if impressumPage.bildnachweisName %}
+      <dd>Für die schönen Fotos auf dieser Webseite bedanken wir uns herzlich bei<br>
+          {% if impressumPage.bildnachweisUrl %}
+          <a href="{{ impressumPage.bildnachweisUrl }}" target="_blank" rel="noopener" style="color:var(--green);text-decoration:underline;text-underline-offset:3px;">{{ impressumPage.bildnachweisName }}</a>
+          {% else %}
+          {{ impressumPage.bildnachweisName }}
+          {% endif %}
+          {% if impressumPage.bildnachweisZusatz %}<br>{{ impressumPage.bildnachweisZusatz }}{% endif %}
+      </dd>
+      {% else %}
       <dd>Für die schönen Fotos auf dieser Webseite bedanken wir uns herzlich bei<br>
           <a href="https://jurina.de" target="_blank" rel="noopener" style="color:var(--green);text-decoration:underline;text-underline-offset:3px;">Jurina Zwirner Photographie</a><br>
           © Jurina Zwirner — jurina.de</dd>
+      {% endif %}
     </dl>
   </div>
 
@@ -106,4 +125,5 @@ title: Impressum — Boberger Reitverein Hamburg
     <p>Datenschutzrechtliche Informationen finden Sie in unserer <a href="/datenschutz/" style="color:var(--green);text-decoration:underline;text-underline-offset:3px;">Datenschutzerklärung</a>.</p>
   </div>
 
+</div>
 </div>

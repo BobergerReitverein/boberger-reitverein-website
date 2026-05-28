@@ -10,7 +10,7 @@ title: Boberger Reitverein Hamburg e.V.
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1 class="hero-title">BOBERGER<br><em>Reitverein</em><br>HAMBURG</h1>
+    <h1 class="hero-title">{{ homepage.heroTitelOben or 'BOBERGER' }}<br><em>{{ homepage.heroTitelMitte or 'Reitverein' }}</em><br>{{ homepage.heroTitelUnten or 'HAMBURG' }}</h1>
     <p class="hero-tagline">{{ homepage.heroTagline or 'Seit 1968 im Herzen der Boberger Niederung.' }}</p>
   </div>
   <div class="hero-scroll">
@@ -44,21 +44,6 @@ title: Boberger Reitverein Hamburg e.V.
       {% endif %}
       <a href="/ueber-uns/" class="news-link" style="margin-top: 28px;">Mehr →</a>
     </div>
-  </div>
-</section>
-
-<!-- AKTUELLES -->
-<section id="aktuelles">
-  <p class="section-label reveal">Aktuelles</p>
-  <div class="aktuelles-grid reveal">
-    {% for post in aktuelles | slice(0, 3) %}
-    <article class="news-card">
-      <div class="news-date">{{ post.kategorie }}</div>
-      <h3 class="news-title">{{ post.titel }}</h3>
-      <p class="news-excerpt">{{ post.auszug }}</p>
-      <a href="/aktuelles/" class="news-link">Mehr erfahren →</a>
-    </article>
-    {% endfor %}
   </div>
 </section>
 

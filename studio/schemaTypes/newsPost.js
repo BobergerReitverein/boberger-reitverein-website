@@ -30,10 +30,59 @@ export default {
     },
     {
       name: 'auszug',
-      title: 'Kurztext',
+      title: 'Einleitung',
       type: 'text',
       rows: 3,
-      description: '1–2 Sätze für die Kachelansicht auf der Startseite'
+      description: '1–2 Sätze, die den Artikel einleiten (kursiv hervorgehoben)'
+    },
+    {
+      name: 'inhalt',
+      title: 'Inhalt (Absätze)',
+      type: 'array',
+      of: [{ type: 'text', rows: 4 }],
+      description: 'Beliebig viele Textabsätze — ein Eintrag pro Absatz'
+    },
+    {
+      name: 'termineAbschnitte',
+      title: 'Termine / Kalender',
+      type: 'array',
+      description: 'Optionale Terminlisten (z. B. Camp-Termine, Jahresplan)',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'label',
+              title: 'Abschnitts-Überschrift',
+              type: 'string',
+              description: 'z. B. „Reit-Camps — Sommerferien 2026" (optional)'
+            },
+            {
+              name: 'eintraege',
+              title: 'Einträge',
+              type: 'array',
+              of: [
+                {
+                  type: 'object',
+                  fields: [
+                    { name: 'datum',        title: 'Datum',         type: 'string', description: 'z. B. „Mo 13.07. – Fr 17.07.2026"' },
+                    { name: 'bezeichnung',  title: 'Bezeichnung',   type: 'string' }
+                  ],
+                  preview: { select: { title: 'datum', subtitle: 'bezeichnung' } }
+                }
+              ]
+            }
+          ],
+          preview: { select: { title: 'label' } }
+        }
+      ]
+    },
+    {
+      name: 'hinweis',
+      title: 'Hinweis-Box',
+      type: 'text',
+      rows: 2,
+      description: 'Optionaler grüner Info-Kasten am Ende des Artikels'
     },
     {
       name: 'bild',
@@ -43,6 +92,6 @@ export default {
     }
   ],
   preview: {
-    select: { title: 'titel', subtitle: 'datum' }
+    select: { title: 'titel', subtitle: 'kategorie' }
   }
 };

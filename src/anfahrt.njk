@@ -8,7 +8,7 @@ navActive: anfahrt
   <div class="page-hero-bg" style="opacity: 1; background: linear-gradient(160deg, rgba(13,26,51,0.78) 0%, rgba(26,58,107,0.68) 45%, rgba(10,18,40,0.80) 100%);"></div>
   <div class="page-hero-content">
     <h1 class="page-title">Anfahrt</h1>
-    <p class="page-subtitle">{{ siteSettings.strasse or 'Billwerder Billdeich 256' }} — {{ siteSettings.plzOrt or '21033 Hamburg' }}</p>
+    <p class="page-subtitle">{{ anfahrtPage.heroSubtitel or 'Billwerder Billdeich 256 — 21033 Hamburg' }}</p>
   </div>
 </div>
 
@@ -25,44 +25,29 @@ navActive: anfahrt
   </div>
 
   <div class="anfahrt-grid">
-    {% if anfahrtPage.routen %}
-      {% for route in anfahrtPage.routen %}
-      <div class="anfahrt-col">
-        <div class="anfahrt-icon">{{ route.icon or '' }}</div>
-        <div class="anfahrt-col-title">{{ route.titel or '' }}</div>
-        {% for schritt in route.schritte %}
-        <div class="route-step">
-          <div class="route-dot"></div>
-          <div class="route-text">{{ schritt }}</div>
-        </div>
-        {% endfor %}
-      </div>
-      {% endfor %}
-    {% else %}
-      <div class="anfahrt-col">
-        <div class="anfahrt-icon">S-Bahn &amp; Bus</div>
-        <div class="anfahrt-col-title">Mit ÖPNV</div>
-        <div class="route-step"><div class="route-dot"></div><div class="route-text"><strong>S2 oder S21</strong> bis Station Mittlerer Landweg</div></div>
-        <div class="route-step"><div class="route-dot"></div><div class="route-text">Von dort zu Fuß ca. 750 m, oder weiter mit <strong>Bus 330 oder 221</strong></div></div>
-        <div class="route-step"><div class="route-dot"></div><div class="route-text">Alternative: <strong>Bus 221</strong> ab S-Bahnhof Bergedorf bis Haltestelle Mittlerer Landweg (Nord)</div></div>
-      </div>
-      <div class="anfahrt-col">
-        <div class="anfahrt-icon">Pkw Route A25</div>
-        <div class="anfahrt-col-title">Mit dem Auto (A25)</div>
-        <div class="route-step"><div class="route-dot"></div><div class="route-text">Autobahn <strong>A25</strong>, Abfahrt Allermöhe</div></div>
-        <div class="route-step"><div class="route-dot"></div><div class="route-text">Durch das Allermöher Industriegebiet, <strong>Hans-Dunker-Straße</strong></div></div>
-        <div class="route-step"><div class="route-dot"></div><div class="route-text">Rechts in den <strong>Rungedamm / Mittlerer Landweg</strong>, unter der S-Bahn bis zum Ende</div></div>
-        <div class="route-step"><div class="route-dot"></div><div class="route-text">Links in den <strong>Billwerder Billdeich</strong> einbiegen</div></div>
-      </div>
-      <div class="anfahrt-col">
-        <div class="anfahrt-icon">Pkw Route B5</div>
-        <div class="anfahrt-col-title">Mit dem Auto (B5)</div>
-        <div class="route-step"><div class="route-dot"></div><div class="route-text">Bundesstraße <strong>B5</strong>, Abfahrt Billstedt (Mitte)</div></div>
-        <div class="route-step"><div class="route-dot"></div><div class="route-text">Richtung <strong>Billbrooke Industriegebiet</strong></div></div>
-        <div class="route-step"><div class="route-dot"></div><div class="route-text">An der dritten Kreuzung links in die <strong>Liebigstraße</strong> einbiegen</div></div>
-        <div class="route-step"><div class="route-dot"></div><div class="route-text">Weiter bis zum <strong>Billwerder Billdeich 256</strong></div></div>
-      </div>
-    {% endif %}
+    <div class="anfahrt-col">
+      <div class="anfahrt-icon">S-Bahn &amp; Bus</div>
+      <div class="anfahrt-col-title">Mit ÖPNV</div>
+      <div class="route-step"><div class="route-dot"></div><div class="route-text"><strong>S2 oder S21</strong> bis Station Mittlerer Landweg</div></div>
+      <div class="route-step"><div class="route-dot"></div><div class="route-text">Von dort zu Fuß ca. 750 m, oder weiter mit <strong>Bus 330 oder 221</strong></div></div>
+      <div class="route-step"><div class="route-dot"></div><div class="route-text">Alternative: <strong>Bus 221</strong> ab S-Bahnhof Bergedorf bis Haltestelle Mittlerer Landweg (Nord)</div></div>
+    </div>
+    <div class="anfahrt-col">
+      <div class="anfahrt-icon">Pkw Route A25</div>
+      <div class="anfahrt-col-title">Mit dem Auto (A25)</div>
+      <div class="route-step"><div class="route-dot"></div><div class="route-text">Autobahn <strong>A25</strong>, Abfahrt Allermöhe</div></div>
+      <div class="route-step"><div class="route-dot"></div><div class="route-text">Durch das Allermöher Industriegebiet, <strong>Hans-Dunker-Straße</strong></div></div>
+      <div class="route-step"><div class="route-dot"></div><div class="route-text">Rechts in den <strong>Rungedamm / Mittlerer Landweg</strong>, unter der S-Bahn bis zum Ende</div></div>
+      <div class="route-step"><div class="route-dot"></div><div class="route-text">Links in den <strong>Billwerder Billdeich</strong> einbiegen</div></div>
+    </div>
+    <div class="anfahrt-col">
+      <div class="anfahrt-icon">Pkw Route B5</div>
+      <div class="anfahrt-col-title">Mit dem Auto (B5)</div>
+      <div class="route-step"><div class="route-dot"></div><div class="route-text">Bundesstraße <strong>B5</strong>, Abfahrt Billstedt (Mitte)</div></div>
+      <div class="route-step"><div class="route-dot"></div><div class="route-text">Richtung <strong>Billbrooke Industriegebiet</strong></div></div>
+      <div class="route-step"><div class="route-dot"></div><div class="route-text">An der dritten Kreuzung links in die <strong>Liebigstraße</strong> einbiegen</div></div>
+      <div class="route-step"><div class="route-dot"></div><div class="route-text">Weiter bis zum <strong>Billwerder Billdeich 256</strong></div></div>
+    </div>
   </div>
 
   <div class="address-card reveal">

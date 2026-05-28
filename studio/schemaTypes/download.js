@@ -13,7 +13,18 @@ export default {
       name: 'kategorie',
       title: 'Kategorie',
       type: 'string',
-      description: 'z. B. „Mitgliedschaft", „Turniere", „Formulare"'
+      options: {
+        list: [
+          { title: 'Mitgliedschaft', value: 'Mitgliedschaft' },
+          { title: 'Formulare',      value: 'Formulare'      },
+          { title: 'Preise',         value: 'Preise'         },
+          { title: 'Reiten',         value: 'Reiten'         },
+          { title: 'Camps',          value: 'Camps'          },
+          { title: 'Sonstiges',      value: 'Sonstiges'      },
+        ],
+        layout: 'dropdown'
+      },
+      validation: Rule => Rule.required()
     },
     {
       name: 'datum',
@@ -26,6 +37,24 @@ export default {
       title: 'PDF-Datei',
       type: 'file',
       options: { accept: '.pdf' }
+    },
+    {
+      name: 'reihenfolge',
+      title: 'Reihenfolge',
+      type: 'number',
+      description: '1 = ganz oben in der Kategorie (niedrigere Zahl = weiter vorne)'
+    }
+  ],
+  orderings: [
+    {
+      title: 'Reihenfolge',
+      name: 'reihenfolgeAsc',
+      by: [{ field: 'kategorie', direction: 'asc' }, { field: 'reihenfolge', direction: 'asc' }]
+    },
+    {
+      title: 'Kategorie + Name',
+      name: 'kategorieNameAsc',
+      by: [{ field: 'kategorie', direction: 'asc' }, { field: 'name', direction: 'asc' }]
     }
   ],
   preview: {

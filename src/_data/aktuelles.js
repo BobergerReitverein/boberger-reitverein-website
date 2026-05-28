@@ -7,6 +7,9 @@ module.exports = async function () {
       kategorie,
       datum,
       auszug,
+      inhalt,
+      termineAbschnitte,
+      hinweis,
       "slug": slug.current
     }
   `);

@@ -24,9 +24,10 @@
   --font-serif:   'Cormorant', serif;
 
   --nav-h: 120px;
+  --section-pad-x: clamp(20px, 4vw, 48px);
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
 
 body {
   background: var(--white);
@@ -242,7 +243,7 @@ nav {
 /* ── PAGE HERO (Unterseiten) ────────────────────────────── */
 .page-hero {
   padding-top: var(--nav-h);
-  min-height: clamp(220px, 38vw, 360px);
+  min-height: clamp(320px, 46vh, 480px);
   display: flex;
   align-items: flex-end;
   padding-left: clamp(20px, 4vw, 48px);
@@ -284,7 +285,7 @@ nav {
 
 .page-title {
   font-family: var(--font-display);
-  font-size: clamp(32px, 6.8vw, 72px);
+  font-size: clamp(36px, 5.5vw + 1vh, 72px);
   font-weight: 400;
   letter-spacing: 0.04em;
   color: var(--white);
@@ -691,7 +692,7 @@ footer {
     }
 
     /* ── ÜBER UNS ─────────────────────────────────────────── */
-    #ueber-uns { padding: clamp(48px, 6.5vw, 72px) clamp(20px, 4vw, 48px); }
+    #ueber-uns { padding: clamp(48px, 6.5vw, 72px) 0; }
 
     .ueber-grid {
       display: grid;
@@ -728,10 +729,6 @@ footer {
       letter-spacing: 0.28em;
       color: rgba(255,255,255,0.25);
       text-transform: uppercase;
-    }
-
-    .ueber-text {
-      max-width: 760px;
     }
 
     .ueber-text p {
@@ -814,6 +811,8 @@ footer {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       border: 1px solid var(--black);
+      margin-left: calc(-1 * var(--section-pad-x));
+      margin-right: calc(-1 * var(--section-pad-x));
     }
 
     .news-card {
@@ -989,6 +988,8 @@ footer {
       grid-template-columns: repeat(4, 1fr);
       border: 1px solid var(--black);
       margin-bottom: clamp(48px, 6vw, 80px);
+      margin-left: calc(-1 * var(--section-pad-x));
+      margin-right: calc(-1 * var(--section-pad-x));
     }
 
     .stat-cell {
@@ -1175,6 +1176,8 @@ footer {
     .gruppe-foto-wrap {
       border: 1px solid var(--black);
       margin-bottom: clamp(48px, 6vw, 80px);
+      margin-left: calc(-1 * var(--section-pad-x));
+      margin-right: calc(-1 * var(--section-pad-x));
     }
 
     .gruppe-foto {
@@ -1269,6 +1272,8 @@ footer {
       padding: clamp(28px, 3.5vw, 40px) clamp(24px, 4vw, 48px);
       border: 1px solid var(--black);
       margin-bottom: clamp(48px, 6vw, 80px);
+      margin-left: calc(-1 * var(--section-pad-x));
+      margin-right: calc(-1 * var(--section-pad-x));
     }
 
     .satzung-text h3 {
@@ -1293,6 +1298,8 @@ footer {
       grid-template-columns: 1fr 1fr;
       gap: clamp(28px, 4.5vw, 60px);
       align-items: center;
+      margin-left: calc(-1 * var(--section-pad-x));
+      margin-right: calc(-1 * var(--section-pad-x));
     }
 
     .mitglied-heading {
@@ -1389,6 +1396,8 @@ footer {
       padding: clamp(28px, 3.2vw, 40px) clamp(24px, 4vw, 48px);
       border: 1px solid var(--black);
       margin-bottom: clamp(48px, 6vw, 80px);
+      margin-left: calc(-1 * var(--section-pad-x));
+      margin-right: calc(-1 * var(--section-pad-x));
     }
     .camp-label {
       font-family: var(--font-body);
@@ -1944,6 +1953,8 @@ footer {
       grid-template-columns: 1fr 1fr;
       border: 1px solid var(--black);
       margin-bottom: clamp(48px, 6vw, 80px);
+      margin-left: calc(-1 * var(--section-pad-x));
+      margin-right: calc(-1 * var(--section-pad-x));
     }
     .gal-cell {
       position: relative;
@@ -1980,6 +1991,8 @@ footer {
       overflow: hidden;
       border: 1px solid var(--black);
       margin-bottom: clamp(48px, 6vw, 80px);
+      margin-left: calc(-1 * var(--section-pad-x));
+      margin-right: calc(-1 * var(--section-pad-x));
     }
     .anlage-banner img {
       width: 100%; height: 100%; object-fit: cover; display: block;
@@ -2096,7 +2109,8 @@ footer {
 /* ═══════════════════════════════════════════
    IMPRESSUM — page-specific styles
    ═══════════════════════════════════════════ */
-.page-content { padding: clamp(37px, 4.7vw, 67px) clamp(20px, 4vw, 48px) clamp(56px, 7vw, 100px); max-width: 900px; }
+.page-content { padding: clamp(37px, 4.7vw, 67px) clamp(20px, 4vw, 48px) clamp(56px, 7vw, 100px); }
+    .legal-inner { max-width: 900px; margin: 0 auto; }
 
     .legal-section {
       border-top: 1px solid var(--black);
@@ -2192,7 +2206,8 @@ footer {
 /* ═══════════════════════════════════════════
    DATENSCHUTZ — page-specific styles
    ═══════════════════════════════════════════ */
-.page-content { padding: clamp(37px, 4.7vw, 67px) clamp(20px, 4vw, 48px) clamp(56px, 7vw, 100px); max-width: 900px; }
+.page-content { padding: clamp(37px, 4.7vw, 67px) clamp(20px, 4vw, 48px) clamp(56px, 7vw, 100px); }
+    .legal-inner { max-width: 900px; margin: 0 auto; }
 
     .legal-label {
       font-family: var(--font-body);

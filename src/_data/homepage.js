@@ -4,6 +4,7 @@ module.exports = async function () {
   const data = await client.fetch(
     `*[_type == "homepage"][0] {
       "heroBildUrl": heroBild.asset->url,
+      heroTitelOben, heroTitelMitte, heroTitelUnten,
       heroTagline,
       uebersUnsTitel,
       uebersUnsAbsaetze,

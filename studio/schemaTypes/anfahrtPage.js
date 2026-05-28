@@ -4,6 +4,7 @@ export default {
   type: 'document',
   fields: [
     { name: 'heroBild', title: 'Hero — Hintergrundbild', type: 'image', options: { hotspot: true } },
+    { name: 'heroSubtitel', title: 'Hero — Untertitel', type: 'string', description: 'z.B. "Billwerder Billdeich 256 — 21033 Hamburg"' },
     {
       name: 'routen',
       title: 'Anfahrtswege',

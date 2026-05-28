@@ -4,6 +4,7 @@ export default {
   type: 'document',
   fields: [
     { name: 'heroBild', title: 'Hero — Hintergrundbild', type: 'image', options: { hotspot: true } },
+    { name: 'sectionLabel', title: 'Abschnitts-Label', type: 'string', description: 'z.B. "Als Einsteller im Boberger Reitverein"' },
     { name: 'introBild', title: 'Intro — Bild (links)', type: 'image', options: { hotspot: true } },
     { name: 'introTitel', title: 'Intro — Titel', type: 'string' },
     {

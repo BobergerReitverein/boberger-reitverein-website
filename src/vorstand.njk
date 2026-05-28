@@ -4,11 +4,11 @@ title: Team — Boberger Reitverein Hamburg
 navActive: verein
 ---
 
-<div class="page-hero" style="background-image: url('{{ vorstandPage.heroBildUrl or '/images/TeamFotoBalken.jpeg' }}'); background-size: 100% auto; background-position: center 30%;">
+<div class="page-hero" style="background-image: url('{{ vorstandPage.heroBildUrl or '/images/TeamFotoBalken.jpeg' }}'); background-size: cover; background-position: center 30%;">
   <div class="page-hero-bg" style="opacity: 1; background: linear-gradient(160deg, rgba(13,26,51,0.78) 0%, rgba(26,58,107,0.68) 45%, rgba(10,18,40,0.80) 100%);"></div>
   <div class="page-hero-content">
     <h1 class="page-title">Team</h1>
-    <p class="page-subtitle">Der Boberger Reitverein Hamburg e.V. — Gegründet 1968</p>
+    <p class="page-subtitle">{{ vorstandPage.heroSubtitel or 'Der Boberger Reitverein Hamburg e.V. — Gegründet 1968' }}</p>
   </div>
 </div>
 
@@ -48,8 +48,9 @@ navActive: verein
     </div>
   </div>
 
-  <!-- Vorstandsmitglieder (from Sanity individual records) -->
-  <p class="section-label reveal">Vorstandsmitglieder</p>
+  <!-- Beauftragte (from Sanity — only shown when records exist) -->
+  {% if vorstand | length %}
+  <p class="section-label reveal">Beauftragte</p>
   <div class="beauftragte-grid reveal">
     {% for mitglied in vorstand %}
     <div class="beauftragte-card">
@@ -67,13 +68,14 @@ navActive: verein
     </div>
     {% endfor %}
   </div>
+  {% endif %}
 
   <!-- Satzung -->
   <p class="section-label reveal">Vereinsdokumente</p>
   <div class="satzung-banner reveal">
     <div class="satzung-text">
       <h3>Vereinssatzung</h3>
-      <p>Die Satzung des Boberger Reitverein Hamburg e.V. steht als PDF zum Download bereit.</p>
+      <p>{{ vorstandPage.satzungBeschreibung or 'Die Satzung des Boberger Reitverein Hamburg e.V. steht als PDF zum Download bereit.' }}</p>
     </div>
     <a href="/downloads/" class="btn">Zur Satzung →</a>
   </div>
@@ -82,14 +84,11 @@ navActive: verein
   <p class="section-label reveal">Mitglied werden</p>
   <div class="mitglied-box reveal">
     <div>
-      <h2 class="mitglied-heading">Teil des<br>BRV werden</h2>
+      <h2 class="mitglied-heading">{{ vorstandPage.mitgliedUeberschrift or 'Teil des BRV werden' }}</h2>
     </div>
     <div>
       <p class="mitglied-text">
-        Der Boberger Reitverein ist offen für alle, die Freude am Reiten und
-        an der Gemeinschaft haben. Die Beitrittserklärung steht unter
-        Downloads zum Herunterladen bereit. Bei Fragen stehen wir gerne
-        persönlich zur Verfügung.
+        {{ vorstandPage.mitgliedText or 'Der Boberger Reitverein ist offen für alle, die Freude am Reiten und an der Gemeinschaft haben. Die Beitrittserklärung steht unter Downloads zum Herunterladen bereit. Bei Fragen stehen wir gerne persönlich zur Verfügung.' }}
       </p>
       <div style="display:flex;gap:16px;flex-wrap:wrap;">
         <a href="/downloads/" class="btn btn-dark">Beitrittserklärung →</a>

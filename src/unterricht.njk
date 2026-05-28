@@ -8,7 +8,7 @@ navActive: angebote
   <div class="page-hero-bg" style="opacity: 1; background: linear-gradient(160deg, rgba(13,26,51,0.78) 0%, rgba(26,58,107,0.68) 45%, rgba(10,18,40,0.80) 100%);"></div>
   <div class="page-hero-content">
     <h1 class="page-title">Unterricht</h1>
-    <p class="page-subtitle">Reiten &amp; Voltigieren — für alle Altersgruppen und Erfahrungsstufen</p>
+    <p class="page-subtitle">{{ unterrichtPage.heroSubtitel or 'Reiten &amp; Voltigieren — für alle Altersgruppen und Erfahrungsstufen' }}</p>
   </div>
 </div>
 
@@ -31,17 +31,17 @@ navActive: angebote
     </div>
   </div>
 
+  {% if unterrichtPage.feriencampTitel %}
   <p class="section-label reveal">Feriencamps</p>
   <div class="camp-banner reveal">
     <div>
-      <div class="camp-label">{{ unterrichtPage.feriencampLabel or 'Sommer 2026 · Jetzt anmelden' }}</div>
-      <div class="camp-title">{{ unterrichtPage.feriencampTitel or 'Reit- & Voltigiercamps' }}</div>
-      <p class="camp-text">
-        {{ unterrichtPage.feriencampText or 'Einwöchige Feriencamps für Kinder und Jugendliche — intensives Training, Stallarbeit, Gemeinschaft und unvergessliche Erlebnisse rund ums Pferd. Camps für Reiten und Voltigieren getrennt buchbar. Anmeldeformular unter Downloads verfügbar.' }}
-      </p>
+      {% if unterrichtPage.feriencampLabel %}<div class="camp-label">{{ unterrichtPage.feriencampLabel }}</div>{% endif %}
+      <div class="camp-title">{{ unterrichtPage.feriencampTitel }}</div>
+      {% if unterrichtPage.feriencampText %}<p class="camp-text">{{ unterrichtPage.feriencampText }}</p>{% endif %}
     </div>
     <a href="/aktuelles/" class="btn">Mehr erfahren →</a>
   </div>
+  {% endif %}
 
   <div class="stundenplan-note reveal">
     <div class="sp-label">Stundenpläne</div>
@@ -55,10 +55,9 @@ navActive: angebote
   <p class="section-label reveal">Kontakt</p>
   <div class="kontakt-cta reveal">
     <div class="kontakt-cta-left">
-      <h2 class="kontakt-cta-heading">Fragen zum<br>Unterricht?</h2>
+      <h2 class="kontakt-cta-heading">{{ unterrichtPage.kontaktCtaUeberschrift or 'Fragen zum Unterricht?' }}</h2>
       <p class="kontakt-cta-text">
-        Ruf uns an oder schreib uns eine E-Mail — wir beraten dich gerne,
-        welcher Kurs am besten zu dir oder deinem Kind passt.
+        {{ unterrichtPage.kontaktCtaText or 'Ruf uns an oder schreib uns eine E-Mail — wir beraten dich gerne, welcher Kurs am besten zu dir oder deinem Kind passt.' }}
       </p>
       <a href="mailto:{{ siteSettings.email or 'info@boberger-reitverein.de' }}" class="btn btn-dark">Jetzt anfragen</a>
     </div>

@@ -2,7 +2,7 @@ const client = require('./sanity');
 
 module.exports = async function () {
   return client.fetch(`
-    *[_type == "download"] | order(kategorie asc, name asc) {
+    *[_type == "download"] | order(kategorie asc, reihenfolge asc, name asc) {
       name,
       kategorie,
       datum,

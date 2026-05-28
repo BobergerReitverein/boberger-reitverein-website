@@ -4,39 +4,89 @@ title: Aktuelles — Boberger Reitverein Hamburg
 navActive: aktuelles
 ---
 
-<div class="page-hero" style="background-image: url('/images/Stangen.jpg'); background-size: cover; background-position: center;">
+<div class="page-hero" style="background-image: url('{{ aktuellesPage.heroBildUrl or '/images/Stangen.jpg' }}'); background-size: cover; background-position: center;">
   <div class="page-hero-bg" style="opacity: 1; background: linear-gradient(160deg, rgba(13,26,51,0.78) 0%, rgba(26,58,107,0.68) 45%, rgba(10,18,40,0.80) 100%);"></div>
   <div class="page-hero-content">
     <h1 class="page-title">Aktuelles</h1>
-    <p class="page-subtitle">Neuigkeiten, Veranstaltungen &amp; Ankündigungen</p>
+    <p class="page-subtitle">{{ aktuellesPage.heroSubtitel or 'Neuigkeiten, Veranstaltungen &amp; Ankündigungen' }}</p>
   </div>
 </div>
 
 <div class="page-content">
 
-  <p class="section-label reveal">Aktuelles 2026</p>
+  {% if aktuelles and aktuelles.length %}
 
-  <div class="aktuelles-grid">
+  <p class="section-label reveal">{{ aktuellesPage.sectionLabel or 'Aktuelles' }}</p>
+
+  <div class="article-list">
     {% for post in aktuelles %}
-    <article class="news-card reveal">
-      <div class="news-date">{{ post.kategorie }}</div>
-      <h3 class="news-title">{{ post.titel }}</h3>
-      <p class="news-excerpt">{{ post.auszug }}</p>
-      <a href="/aktuelles/" class="news-link">Mehr erfahren →</a>
+    <article class="article reveal">
+      <div class="article-body">
+
+        {% if post.kategorie %}
+        <p style="font-family:var(--font-body);font-weight:200;font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--green);margin-bottom:14px;">{{ post.kategorie }}</p>
+        {% endif %}
+
+        <h2 class="article-title">{{ post.titel }}</h2>
+
+        {% if post.auszug %}
+        <p class="article-lead">{{ post.auszug }}</p>
+        {% endif %}
+
+        {% if post.inhalt and post.inhalt.length %}
+        <div class="article-text">
+          {% for absatz in post.inhalt %}
+          {{ absatz | richText | safe }}
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if post.termineAbschnitte and post.termineAbschnitte.length %}
+          {% for abschnitt in post.termineAbschnitte %}
+          <div class="camp-section">
+            {% if abschnitt.label %}
+            <div class="camp-section-label">{{ abschnitt.label }}</div>
+            {% endif %}
+            {% if abschnitt.eintraege and abschnitt.eintraege.length %}
+            <div class="camp-table-wrap">
+              <table class="camp-table">
+                <thead><tr><th>Datum</th><th>Veranstaltung</th></tr></thead>
+                <tbody>
+                  {% for t in abschnitt.eintraege %}
+                  <tr><td>{{ t.datum }}</td><td>{{ t.bezeichnung }}</td></tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            {% endif %}
+          </div>
+          {% endfor %}
+        {% endif %}
+
+        {% if post.hinweis %}
+        <div class="info-box">{{ post.hinweis }}</div>
+        {% endif %}
+
+      </div>
     </article>
     {% endfor %}
   </div>
 
-  <!-- Kontakt CTA -->
+  {% else %}
+
+  <p style="font-weight:300;font-size:14px;color:#888;padding:48px 0;">Aktuell keine Beiträge vorhanden.</p>
+
+  {% endif %}
+
   <div class="aktuelles-cta">
     <div>
       <p style="font-family:var(--font-body);font-weight:200;font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Allgemeine Anfragen</p>
-      <h3 style="font-family:var(--font-display);font-size:20px;letter-spacing:0.04em;margin-bottom:6px;">Fragen zu unseren Ankündigungen?</h3>
-      <p style="font-weight:300;font-size:13px;color:#555;line-height:1.7;">Wir helfen dir gerne weiter — per Telefon oder E-Mail.</p>
+      <h3 style="font-family:var(--font-display);font-size:20px;letter-spacing:0.04em;margin-bottom:6px;">{{ aktuellesPage.ctaUeberschrift or 'Fragen zu unseren Ankündigungen?' }}</h3>
+      <p style="font-weight:300;font-size:13px;color:#555;line-height:1.7;">{{ aktuellesPage.ctaText or 'Wir helfen dir gerne weiter — per Telefon oder E-Mail.' }}</p>
     </div>
     <div style="display:flex;gap:16px;flex-wrap:wrap;">
-      <a href="tel:+494073340552" class="btn">040 7340552</a>
-      <a href="mailto:info@boberger-reitverein.de" class="btn">E-Mail schreiben</a>
+      <a href="tel:{{ siteSettings.telefon or '040 7340552' }}" class="btn">{{ siteSettings.telefon or '040 7340552' }}</a>
+      <a href="mailto:{{ siteSettings.email or 'info@boberger-reitverein.de' }}" class="btn">E-Mail schreiben</a>
     </div>
   </div>
 

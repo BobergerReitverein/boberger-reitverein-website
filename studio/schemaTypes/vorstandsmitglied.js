@@ -1,6 +1,6 @@
 export default {
   name: 'vorstandsmitglied',
-  title: 'Vorstandsmitglied',
+  title: 'Beauftragte',
   type: 'document',
   fields: [
     {

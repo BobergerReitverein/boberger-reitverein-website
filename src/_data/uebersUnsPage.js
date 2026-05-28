@@ -4,6 +4,7 @@ module.exports = async function () {
   const data = await client.fetch(
     `*[_type == "uebersUnsPage"][0] {
       "heroBildUrl": heroBild.asset->url,
+      heroSubtitel,
       "hauptBildUrl": hauptBild.asset->url,
       absaetze
     }`
