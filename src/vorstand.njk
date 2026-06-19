@@ -4,7 +4,7 @@ title: Team — Boberger Reitverein Hamburg
 navActive: verein
 ---
 
-<div class="page-hero" style="background-image: url('{{ vorstandPage.heroBildUrl or '/images/TeamFotoBalken.jpeg' }}'); background-size: cover; background-position: center 30%;">
+<div class="page-hero" style="background-image: url('{{ vorstandPage.heroBildUrl or '/images/TeamFotoBalken.jpeg' }}'); background-size: cover; background-position: {{ vorstandPage.heroBildHotspot | hotspotPosition('center 30%') }};">
   <div class="page-hero-bg" style="opacity: 1; background: linear-gradient(160deg, rgba(13,26,51,0.78) 0%, rgba(26,58,107,0.68) 45%, rgba(10,18,40,0.80) 100%);"></div>
   <div class="page-hero-content">
     <h1 class="page-title">Team</h1>
@@ -19,7 +19,7 @@ navActive: verein
   <div class="gruppe-foto-wrap reveal">
     <div class="gruppe-foto">
       {% if vorstandPage.gruppenFotoUrl %}
-        <img src="{{ vorstandPage.gruppenFotoUrl }}" alt="Gruppenfoto Vereinsvorstand" loading="lazy" onerror="this.style.display='none'" />
+        <img src="{{ vorstandPage.gruppenFotoUrl }}" alt="Gruppenfoto Vereinsvorstand" loading="lazy" onerror="this.style.display='none'" style="object-position: {{ vorstandPage.gruppenFotoHotspot | hotspotPosition }};" />
       {% else %}
         <img src="/images/vorstand/Gruppenfoto.jpg" alt="Gruppenfoto Vereinsvorstand" loading="lazy" onerror="this.style.display='none'" />
       {% endif %}
@@ -36,7 +36,7 @@ navActive: verein
     <div class="betrieb-card">
       <div class="beauftragte-photo">
         {% if vorstandPage.betriebsleiterinFotoUrl %}
-          <img src="{{ vorstandPage.betriebsleiterinFotoUrl }}" alt="{{ vorstandPage.betriebsleiterinName or 'Stefanie Gontard' }}" loading="lazy" onerror="this.style.display='none'" />
+          <img src="{{ vorstandPage.betriebsleiterinFotoUrl }}" alt="{{ vorstandPage.betriebsleiterinName or 'Stefanie Gontard' }}" loading="lazy" onerror="this.style.display='none'" style="object-position: {{ vorstandPage.betriebsleiterinFotoHotspot | hotspotPosition }};" />
         {% else %}
           <img src="/images/vorstand/StefanieGontard.jpg" alt="Stefanie Gontard" loading="lazy" onerror="this.style.display='none'" />
         {% endif %}
@@ -56,7 +56,7 @@ navActive: verein
     <div class="beauftragte-card">
       <div class="beauftragte-photo">
         {% if mitglied.fotoUrl %}
-          <img src="{{ mitglied.fotoUrl }}" alt="{{ mitglied.name }}" loading="lazy">
+          <img src="{{ mitglied.fotoUrl }}" alt="{{ mitglied.name }}" loading="lazy" style="object-position: {{ mitglied.fotoHotspot | hotspotPosition }};">
         {% else %}
           <div class="vorstand-placeholder" style="width:100%;height:100%;background:linear-gradient(135deg,#1C3A2A,#0a1208);"></div>
         {% endif %}

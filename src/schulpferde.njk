@@ -4,7 +4,7 @@ title: Schulpferde — Boberger Reitverein Hamburg
 navActive: angebote
 ---
 
-<div class="page-hero" style="background-image: url('{{ schulpferdePage.heroBildUrl or '/images/SchulpferdeFotoBalken.jpeg' }}'); background-size: cover; background-position: center 30%;">
+<div class="page-hero" style="background-image: url('{{ schulpferdePage.heroBildUrl or '/images/SchulpferdeFotoBalken.jpeg' }}'); background-size: cover; background-position: {{ schulpferdePage.heroBildHotspot | hotspotPosition('center 30%') }};">
   <div class="page-hero-bg" style="opacity: 1; background: linear-gradient(160deg, rgba(13,26,51,0.78) 0%, rgba(26,58,107,0.68) 45%, rgba(10,18,40,0.80) 100%);"></div>
   <div class="page-hero-content">
     <h1 class="page-title">Schulpferde</h1>
@@ -64,7 +64,7 @@ navActive: angebote
     <div class="pferd-card reveal">
       <div class="pferd-photo">
         {% if pferd.bildUrl %}
-          <img src="{{ pferd.bildUrl }}" alt="{{ pferd.name }}" loading="lazy">
+          <img src="{{ pferd.bildUrl }}" alt="{{ pferd.name }}" loading="lazy" style="object-position: {{ pferd.bildHotspot | hotspotPosition }};">
         {% else %}
           <div style="width:100%;height:100%;background:#e0ddd8;"></div>
         {% endif %}

@@ -9,6 +9,14 @@ module.exports = function(eleventyConfig) {
   // - double newlines → paragraph breaks
   // - tab-separated lines → <table class="camp-table"> (first row = <thead>)
   // - single newlines within a block → <br>
+  // Übersetzt den in Sanity gesetzten Bild-Hotspot (Fokuspunkt, 0-1) in eine
+  // CSS background-position / object-position. Ohne Hotspot greift der fallback.
+  eleventyConfig.addFilter('hotspotPosition', function(hotspot, fallback) {
+    fallback = fallback || 'center';
+    if (!hotspot || typeof hotspot.x !== 'number' || typeof hotspot.y !== 'number') return fallback;
+    return `${(hotspot.x * 100).toFixed(1)}% ${(hotspot.y * 100).toFixed(1)}%`;
+  });
+
   eleventyConfig.addFilter('richText', function(text) {
     if (!text) return '';
     const paragraphs = String(text).split(/\n{2,}/);

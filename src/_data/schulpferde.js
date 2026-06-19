@@ -6,7 +6,8 @@ module.exports = async function () {
       name,
       rasse,
       voltigieren,
-      "bildUrl": bild.asset->url
+      "bildUrl": bild.asset->url,
+      "bildHotspot": bild.hotspot
     }
   `);
 };

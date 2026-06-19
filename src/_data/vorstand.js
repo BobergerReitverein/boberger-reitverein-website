@@ -5,7 +5,8 @@ module.exports = async function () {
     *[_type == "vorstandsmitglied"] | order(reihenfolge asc) {
       name,
       rolle,
-      "fotoUrl": foto.asset->url
+      "fotoUrl": foto.asset->url,
+      "fotoHotspot": foto.hotspot
     }
   `);
 };

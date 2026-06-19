@@ -6,7 +6,7 @@ title: Boberger Reitverein Hamburg e.V.
 <!-- HERO -->
 <section class="hero">
   <div class="hero-img-wrap">
-    <img src="{{ homepage.heroBildUrl or '/images/slide-1.jpg' }}" alt="Boberger Reitverein" class="hero-single-img">
+    <img src="{{ homepage.heroBildUrl or '/images/slide-1.jpg' }}" alt="Boberger Reitverein" class="hero-single-img" style="object-position: {{ homepage.heroBildHotspot | hotspotPosition }};">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -24,7 +24,7 @@ title: Boberger Reitverein Hamburg e.V.
   <div class="ueber-grid reveal">
     <div class="ueber-image">
       {% if homepage.uebersUnsBildUrl %}
-        <img src="{{ homepage.uebersUnsBildUrl }}" alt="Über uns" style="width:100%;height:100%;object-fit:cover;">
+        <img src="{{ homepage.uebersUnsBildUrl }}" alt="Über uns" style="width:100%;height:100%;object-fit:cover;object-position: {{ homepage.uebersUnsBildHotspot | hotspotPosition }};">
       {% endif %}
     </div>
     <div class="ueber-text">
@@ -48,7 +48,7 @@ title: Boberger Reitverein Hamburg e.V.
 </section>
 
 <!-- KONTAKT -->
-<section id="kontakt" style="background-image: url('{{ homepage.kontaktHintergrundbildUrl or '/images/Hintergrundkontakt.jpg' }}'); background-size: cover; background-position: center;">
+<section id="kontakt" style="background-image: url('{{ homepage.kontaktHintergrundbildUrl or '/images/Hintergrundkontakt.jpg' }}'); background-size: cover; background-position: {{ homepage.kontaktHintergrundbildHotspot | hotspotPosition }};">
   <div class="kontakt-overlay"></div>
   <p class="section-label reveal">Kontakt</p>
   <div class="kontakt-box reveal">
