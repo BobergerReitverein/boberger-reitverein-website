@@ -22,8 +22,8 @@ navActive: verein
         <img src="{{ vorstandPage.gruppenFotoUrl }}" alt="Gruppenfoto Vereinsvorstand" loading="lazy" onerror="this.style.display='none'" style="object-position: {{ vorstandPage.gruppenFotoHotspot | hotspotPosition }};" />
       {% else %}
         <img src="/images/vorstand/Gruppenfoto.jpg" alt="Gruppenfoto Vereinsvorstand" loading="lazy" onerror="this.style.display='none'" />
+        <span class="gruppe-foto-hint">Gruppenfoto Vereinsvorstand</span>
       {% endif %}
-      <span class="gruppe-foto-hint">Gruppenfoto Vereinsvorstand</span>
     </div>
     <div class="gruppe-foto-caption">
       {% if vorstandPage.gruppenFotoBeschriftung %}{{ vorstandPage.gruppenFotoBeschriftung }}{% else %}Christiane Feist (Vorsitzende) &nbsp;|&nbsp; Isabelle Haesler (Stellv. Vorsitzende) &nbsp;|&nbsp; Katharina Lechelt (Schatzmeisterin) &nbsp;|&nbsp; Lilli Schmidt (Jugendwartin) &nbsp;|&nbsp; Janine Band (Technische Leiterin){% endif %}
